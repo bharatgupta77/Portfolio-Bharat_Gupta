@@ -1,0 +1,79 @@
+.skillsContainer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.category {
+  margin-bottom: 3rem;
+}
+
+.skillImage {
+  width: 98%; /* Adjust width to fit inside the card */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100px; /* Prevent overflow */
+  object-fit: contain; /* Ensures the image stays within the box */
+  display: block;
+  margin: 0 auto; /* Center align */
+}
+
+.categoryTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.skillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 125px;
+  height: auto; /* Adjust height dynamically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Prevent content from breaking out */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Placeholder for skill images */
+.skillImagePlaceholder {
+  width: 60px;
+  height: 60px;
+  background: #f3f3f3;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+/* Skill text styles */
+.skillTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.skillDesc {
+  font-size: 0.85rem;
+  color: gray;
+}
