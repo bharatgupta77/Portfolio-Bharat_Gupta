@@ -8,6 +8,10 @@
   --footer-text-color: #888;
   --education-text-color: #555;
   --education-headingText-color: #555;
+
+  --card-bg: #ffffff; /* ✅ White cards */
+  --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] {
@@ -20,6 +24,12 @@
   --footer-text-color: #bbb;
   --education-text-color: #fff;
   --education-headingText-color: #fff;
+
+  --card-bg: #292727; /* ✅ Dark cards */
+  --card-border: rgba(255, 255, 255, 0.01); /* ✅ Soft white border */
+  --card-hover-bg: rgba(255, 255, 255, 0.001);
+  --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.09);
+  --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 body {
