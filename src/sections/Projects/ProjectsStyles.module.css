@@ -2,43 +2,47 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-
-  h1 {
-    margin-bottom: 5%;
-  }
-
-  p {
-    margin-top: 2%;
-  }
-
-  img {
-    max-width: 250px;
-    align-self: center;
-    background-color: var(--project-card-bg);
-    border-radius: 20px;
-    margin-bottom: 15px;
-  }
-
-  a {
-    width: fit-content;
-    text-decoration: none;
-    color: #222;
-    transition: transform 200ms ease-in-out;
-  }
-
-  a:hover {
-    transform: scale(1.05);
-  }
+  padding: 2rem; /* ✅ Add padding for spacing */
 }
 
+.container h1 {
+  margin-bottom: 5%;
+}
+
+.container p {
+  margin-top: 2%;
+}
+
+.container img {
+  max-width: 250px;
+  align-self: center;
+  background-color: var(--project-card-bg);
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.container a {
+  width: fit-content;
+  text-decoration: none;
+  color: #222;
+  transition: transform 200ms ease-in-out;
+}
+
+.container a:hover {
+  transform: scale(1.05);
+}
+
+/* 📌 Ensure spacing in project container */
 .projectsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 100px;
+  padding: 0 1rem; /* ✅ Adds left & right padding */
 }
 
-@media (width >= 800px) {
+/* 🖥️ Desktop: Adjust layout for larger screens */
+@media (min-width: 800px) {
   .projectsContainer {
     flex-direction: row;
     flex-wrap: wrap;
@@ -48,13 +52,17 @@
   }
 }
 
-@media (width < 800px) {
+/* 📱 Mobile: Ensure spacing */
+@media (max-width: 800px) {
   .container {
-    h1 {
-      margin-bottom: 10%;
-    }
-    p {
-      margin-top: 3%;
-    }
+    padding: 1.5rem; /* ✅ Add spacing for mobile screens */
+  }
+
+  .container h1 {
+    margin-bottom: 10%;
+  }
+
+  .container p {
+    margin-top: 3%;
   }
 }
