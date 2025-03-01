@@ -1,27 +1,61 @@
 .card {
-  width: 20% !important; /* Default width for larger screens */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation */
+  width: 20% !important;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 2px solid var(--card-border); /* ✅ Light in light mode, dark in dark mode */
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    border 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-/* 📱 Make cards full-width on small screens */
+/* 📱 Full width on smaller screens */
 @media (max-width: 800px) {
   .card {
-    width: 100% !important;
+    width: 90% !important;
+  }
+  .card:hover {
+    background: var(--card-hover-bg);
+    border: 2px solid var(--card-hover-border);
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-10px);
   }
 }
 
-/* 🖥️ Apply Tile Effect Only on Large Screens */
+/* 🖥️ Tile Effect for Large Screens */
 @media (min-width: 801px) {
   .card {
-    background: white;
-    border-radius: 16px; /* Rounded corners */
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12); /* Subtle shadow */
-    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
   }
 
-  /* 🖥️ Hover Effect (Only for Larger Screens) */
+  /* 🖥️ Hover Effect */
   .card:hover {
-    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.2); /* Larger shadow */
-    transform: translateY(-10px); /* Slight lift */
+    background: var(--card-hover-bg);
+    border: 2px solid var(--card-hover-border);
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-10px);
   }
+}
+
+/* 🖼 Image Adjustments */
+.card img {
+  max-width: 80%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* ✏️ Text Adjustments */
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  line-height: 1.5;
 }
