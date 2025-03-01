@@ -130,7 +130,7 @@ const Skills = () => {
             {section.skills.map((skill) => (
               <div key={skill.name} className={styles.card}>
                 <img
-                  src={theme === "light" ? skill.imageDark : skill.imageLight} // ✅ Dynamic theme-based image
+                  src={theme === "light" ? skill.imageDark : skill.imageLight}
                   alt={skill.name}
                   className={styles.skillImage}
                 />
