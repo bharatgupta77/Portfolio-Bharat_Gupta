@@ -114,34 +114,36 @@ const Skills = () => {
   const { theme, toggleIcon } = useTheme(); // ✅ Correctly invoking useTheme
 
   return (
-    <div className={styles.skillsContainer}>
-      <h2 className={styles.title}>Skills</h2>
-      {skillsData.map((section, index) => (
-        <motion.div
-          key={section.category}
-          className={styles.category}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.2 }}
-        >
-          <h3 className={styles.categoryTitle}>{section.category}</h3>
-          <div className={styles.skillGrid}>
-            {section.skills.map((skill) => (
-              <div key={skill.name} className={styles.card}>
-                <img
-                  src={theme === "light" ? skill.imageDark : skill.imageLight}
-                  alt={skill.name}
-                  className={styles.skillImage}
-                />
-                <h4 className={styles.skillTitle}>{skill.name}</h4>
-                <p className={styles.skillDesc}>{skill.desc}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </div>
+    <>
+      <h1 className={styles.title}>Skills</h1>
+      <div className={styles.skillsContainer}>
+        {skillsData.map((section, index) => (
+          <motion.div
+            key={section.category}
+            className={styles.category}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            <h3 className={styles.categoryTitle}>{section.category}</h3>
+            <div className={styles.skillGrid}>
+              {section.skills.map((skill) => (
+                <div key={skill.name} className={styles.card}>
+                  <img
+                    src={theme === "light" ? skill.imageDark : skill.imageLight}
+                    alt={skill.name}
+                    className={styles.skillImage}
+                  />
+                  <h4 className={styles.skillTitle}>{skill.name}</h4>
+                  <p className={styles.skillDesc}>{skill.desc}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </>
   );
 };
 
