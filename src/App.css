@@ -12,6 +12,17 @@
   --card-bg: #ffffff; /* ✅ White cards */
   --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+  --card-hover-bg: rgba(255, 255, 255, 0.001);
+
+  /* skill container */
+  --skills-container-bg: #ffffff; /* White container */
+  --skills-container-border: rgba(0, 0, 0, 0.1);
+  --skills-card-bg: #f9f9f9; /* Light skill card */
+  --skills-card-border: rgba(0, 0, 0, 0.08);
+  --skills-category-text-color: #222;
+  --skills-title-text-color: #222;
+
+  --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
 }
 
 [data-theme="dark"] {
@@ -30,6 +41,17 @@
   --card-hover-bg: rgba(255, 255, 255, 0.001);
   --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.09);
   --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.3);
+
+  /* skill container */
+  --skills-container-bg: #292727; /* Dark container */
+  --skills-container-border: rgba(255, 255, 255, 0.15);
+  --skills-card-bg: #fff; /* Dark skill card */
+  --skills-text-color: #222;
+  --skills-category-text-color: #fff;
+  --skills-title-text-color: #fff;
+  --skills-card-border: rgba(255, 255, 255, 0.1);
+
+  --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
 }
 
 body {
