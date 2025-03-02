@@ -2,6 +2,7 @@
   text-align: center;
   padding: 2rem;
   max-width: 100%;
+  background: var(--skills-container-bg);
 }
 
 /* 🖥️ Apply card (tile) effect only on larger screens */
@@ -9,7 +10,7 @@
   .skillsContainer {
     max-width: 90%;
     margin: 2rem auto;
-    background: white;
+    background: var(--skills-container-bg);
     border-radius: 16px;
     box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -21,15 +22,27 @@
 
   /* 🖥️ Tile Hover Effect (Desktop Only) */
   .skillsContainer:hover {
+    background: var(--skills-card-hover-bg);
+    border: 2px solid var(--card-hover-border);
     box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.2);
     transform: translateY(-10px);
   }
 }
 
+@media (max-width: 800px) {
+  .skillsContainer {
+    width: 75% !important;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+}
+
 .title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 20px;
+  margin-top: 25px;
+
+  text-align: center;
+  color: var(--skills-title-text-color);
 }
 
 .category {
@@ -50,6 +63,8 @@
   font-weight: bold;
   margin-bottom: 3rem;
   text-transform: uppercase;
+  font-family: "Rubik", sans-serif;
+  color: var(--skills-category-text-color);
 }
 
 .skillGrid {
@@ -60,7 +75,7 @@
 }
 
 .card {
-  background: white;
+  background: var(--skills-card-bg);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
@@ -70,30 +85,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden; /* Prevent content from breaking out */
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* Placeholder for skill images */
+/* Placeholder for skill images 
 .skillImagePlaceholder {
   width: 60px;
   height: 60px;
   background: #f3f3f3;
   border-radius: 50%;
   margin-bottom: 0.5rem;
-}
+}*/
 
 /* Skill text styles */
 .skillTitle {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
+  color: var(--skills-text-color);
 }
 
 .skillDesc {
