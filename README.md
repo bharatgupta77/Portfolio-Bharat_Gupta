@@ -25,4 +25,4 @@ Vite.js – For fast development, optimized builds, and a better developer exper
 
 ✔️ Light & Dark Mode – Custom-built theming system that allows users to switch between light and dark modes effortlessly.
 
-💡 This portfolio is still a work in progress—stay tuned for more updates! 🚀
+This portfolio is still a work in progress—stay tuned for more updates!
