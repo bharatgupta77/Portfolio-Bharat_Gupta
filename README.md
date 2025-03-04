@@ -16,5 +16,6 @@ Vite.js – For fast development, optimized builds, and a better developer exper
 ✔️ Smooth Animations – Powered by Framer Motion for an engaging experience.
 ✔️ Optimized Performance – Built with Vite.js for fast loading and smooth interactions.
 ✔️ Mobile Responsive – Ensures a seamless experience across all devices.
+✔️ Light & Dark Mode – Custom-built theming system that allows users to switch between light and dark modes effortlessly.
 
 💡 This portfolio is still a work in progress—stay tuned for more updates! 🚀
