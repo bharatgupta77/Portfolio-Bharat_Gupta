@@ -40,7 +40,7 @@ const educationData = [
 
 const EducationTimeline = () => {
   return (
-    <div className={styles.container}>
+    <div id="education" className={styles.container}>
       <h1 className={styles.heading}>Education</h1>
       <div className={styles.timeline}>
         {educationData.map((edu, index) => (
