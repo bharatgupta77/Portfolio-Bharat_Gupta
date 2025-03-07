@@ -115,7 +115,9 @@ const Skills = () => {
 
   return (
     <>
-      <h1 className={styles.title}>Skills</h1>
+      <h1 id="skills" className={styles.title}>
+        Skills
+      </h1>
       <div className={styles.skillsContainer}>
         {skillsData.map((section, index) => (
           <motion.div
