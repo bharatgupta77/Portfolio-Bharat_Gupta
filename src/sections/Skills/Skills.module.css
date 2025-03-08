@@ -1,14 +1,15 @@
 .skillsContainer {
   text-align: center;
   padding: 2rem;
-  max-width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
   background: var(--skills-container-bg);
 }
 
 /* 🖥️ Apply card (tile) effect only on larger screens */
 @media (min-width: 1024px) {
   .skillsContainer {
-    max-width: 90%;
+    max-width: 60% !important;
     margin: 2rem auto;
     background: var(--skills-container-bg);
     border-radius: 16px;
