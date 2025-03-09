@@ -114,10 +114,8 @@ const Skills = () => {
   const { theme, toggleIcon } = useTheme(); // ✅ Correctly invoking useTheme
 
   return (
-    <>
-      <h1 id="skills" className={styles.title}>
-        Skills
-      </h1>
+    <section id="skills" className={styles.container}>
+      <h1 className={styles.title}>Skills</h1>
       <div className={styles.skillsContainer}>
         {skillsData.map((section, index) => (
           <motion.div
@@ -145,7 +143,7 @@ const Skills = () => {
           </motion.div>
         ))}
       </div>
-    </>
+    </section>
   );
 };
 
