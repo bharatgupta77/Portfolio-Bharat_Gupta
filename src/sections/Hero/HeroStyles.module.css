@@ -114,3 +114,9 @@
     max-width: 50vw;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 7%;
+  }
+}
