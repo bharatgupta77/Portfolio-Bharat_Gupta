@@ -23,6 +23,13 @@
   --skills-title-text-color: #222;
 
   --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
+
+  --navbarList-text-color: #222;
+  --navbar-background: #fff;
+  --navbar-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+
+  --burger-background-bar: #222;
+  --burger-bar-text-color: #222;
 }
 
 [data-theme="dark"] {
@@ -52,6 +59,15 @@
   --skills-card-border: rgba(255, 255, 255, 0.1);
 
   --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
+
+  --burger-background-bar: #fff;
+  --burger-bar-text-color: #fff;
+
+  /* NavBar */
+
+  --navbarList-text-color: #fff;
+  --navbar-background: #222;
+  --navbar-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -59,6 +75,8 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 #root {

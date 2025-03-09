@@ -1,3 +1,7 @@
+.container {
+  padding-top: 1%;
+}
+
 .skillsContainer {
   text-align: center;
   padding: 2rem;
@@ -39,7 +43,7 @@
 }
 
 .title {
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   margin-top: 25px;
 
   text-align: center;
