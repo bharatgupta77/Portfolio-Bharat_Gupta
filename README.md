@@ -3,6 +3,7 @@
 Welcome to my portfolio! This project showcases my work in web development, focusing on interactive and visually appealing designs.
 
 🚀 Tech Stack
+
 This portfolio is built using the following technologies:
 
 HTML & CSS – For structuring and styling the web pages, ensuring a responsive and modern design.
