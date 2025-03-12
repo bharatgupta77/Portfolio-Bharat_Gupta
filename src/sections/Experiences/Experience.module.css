@@ -1,0 +1,152 @@
+/* Container styling */
+.container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  /* Subtle background to help the card pop */
+  border-radius: 8px;
+}
+
+/* Heading */
+.sectionHeading {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Tabs styling */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 10px; /* for spacing between tabs */
+}
+
+.tab {
+  padding: 14px 28px;
+  width: 30%;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+/* 1st tab = red, 2nd tab = yellow, 3rd tab = orange, with white text */
+.tab:nth-child(1) {
+  background: #e53935; /* Red */
+  color: #fff;
+}
+
+.tab:nth-child(2) {
+  background: #222; /* Yellow */
+  color: #fff;
+}
+
+.tab:nth-child(3) {
+  background: #fb8c00; /* Orange */
+  color: #fff;
+}
+
+/* Hover effect on all tabs */
+.tab:hover {
+  transform: scale(1.05);
+}
+
+/* Active state: a slight brightness and a white border */
+.active {
+  filter: brightness(1.2);
+  border: 2px solid #fff;
+}
+
+/* Carousel wrapper */
+.carousel {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 16px;
+  /* Slightly bigger shadow for the overall carousel container */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Card styling */
+.card {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  box-sizing: border-box;
+  background: #fff;
+
+  /* Example of "unique edges" border radius:
+     top-left = 32px, top-right = 16px, bottom-right = 32px, bottom-left = 16px */
+  border-radius: 32px 16px 32px 16px;
+
+  padding: 20px;
+  /* More pronounced box shadow for the card itself */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo container (left side) */
+.logoContainer {
+  flex: 0 0 280px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+/* Logo image */
+.logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Card content (right side) */
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Company title */
+.company {
+  margin: 0 0 12px 0;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Emojis for labeling */
+.emoji {
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+/* Text styling for different paragraphs */
+.role,
+.duration,
+.description,
+.techStack,
+.awards {
+  margin: 8px 0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.role strong,
+.duration strong,
+.techStack strong,
+.awards strong {
+  color: #555;
+  margin-right: 4px;
+  font-weight: 600;
+}
