@@ -1,5 +1,6 @@
 import "./App.css";
 import EducationTimeline from "./sections/Education/EducationTimeline";
+import Experience from "./sections/Experiences/Experience";
 import Footer from "./sections/Footer/Footer";
 import Hero from "./sections/Hero/Hero";
 import NavBar from "./sections/NavBar/Navbar";
@@ -12,6 +13,7 @@ function App() {
       <NavBar />
       <Hero />
       <EducationTimeline />
+      <Experience />
       <Projects />
       <Skills />
       <Footer />
