@@ -46,7 +46,7 @@ const NavBar = () => {
         </li>
         <li
           className={styles.navItem}
-          onClick={() => scrollToSection("experiences")}
+          onClick={() => scrollToSection("experience")}
         >
           Experiences
         </li>
