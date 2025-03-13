@@ -8,6 +8,12 @@ import linkedinDark from "../../assets/linkedin-dark.svg";
 import githubIconLight from "../../assets/github-light.svg";
 import githubIconDark from "../../assets/github-dark.svg";
 
+import leetcodeIconDark from "../../assets/leetcode_dark.svg";
+import leetcodeIconLight from "../../assets/leetcode_light.svg";
+
+import hackerrankIconLight from "../../assets/hackerrank_dark.svg";
+import hackerrankIconDark from "../../assets/hackerrank_light.svg";
+
 import CV from "../../assets/Bharat_Gupta_Resume_updated.pdf";
 import { useTheme } from "../../common/ThemeContext";
 import sun from "../../assets/sun.svg";
@@ -19,7 +25,14 @@ function Hero() {
   const themeIcon = theme === "light" ? sun : moon;
   const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
   const githubIcon = theme === "light" ? githubIconLight : githubIconDark;
+  const leetcodeIcon = theme === "light" ? leetcodeIconLight : leetcodeIconDark;
+  const hackerrankIcon =
+    theme === "light" ? hackerrankIconLight : hackerrankIconDark;
+
   const profilePicIcon = theme === "light" ? heroImgDark : heroImg;
+
+  const leetcode_img_style =
+    theme === "light" ? styles.img_dark : styles.img_light;
 
   return (
     <section id="hero" className={styles.container}>
@@ -53,6 +66,17 @@ function Hero() {
 
           <a href="https://www.linkedin.com/in/bharatgupta77/" target="_blank">
             <img src={linkedinIcon} alt="" />
+          </a>
+
+          <a href="https://leetcode.com/u/guptabharat297/" target="_blank">
+            <img className={leetcode_img_style} src={leetcodeIcon} alt="" />
+          </a>
+
+          <a
+            href="https://www.hackerrank.com/profile/bharatgupta777"
+            target="_blank"
+          >
+            <img className={leetcode_img_style} src={hackerrankIcon} alt="" />
           </a>
         </span>
 
