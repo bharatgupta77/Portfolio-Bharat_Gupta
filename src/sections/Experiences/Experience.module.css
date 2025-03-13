@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 20px;
   /* Subtle background to help the card pop */
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 /* Heading */
@@ -13,7 +13,7 @@
   margin-top: 25px;
   margin-bottom: 40px;
   font-weight: 700;
-  color: #333;
+  color: var(--experiences-text-color-heading);
 }
 
 /* Tabs styling */
@@ -42,7 +42,7 @@
 }
 
 .tab:nth-child(2) {
-  background: #222; /* Yellow */
+  background: var(--tab-atechnos-color); /* Yellow */
   color: #fff;
 }
 
@@ -67,9 +67,10 @@
   position: relative;
   height: 500px;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 12px;
   /* Slightly bigger shadow for the overall carousel container */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background-color: var(--experiences-bg-color);
 }
 
 /* Card styling */
@@ -79,7 +80,7 @@
   height: 500px;
   display: flex;
   box-sizing: border-box;
-  background: #fff;
+  background: var(--experiences-bg-color);
 
   /* Example of "unique edges" border radius:
      top-left = 32px, top-right = 16px, bottom-right = 32px, bottom-left = 16px */
@@ -99,6 +100,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 20px;
+  background: var(--experiences-bg-color);
 }
 
 /* Logo image */
@@ -114,6 +116,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: var(--experiences-bg-color);
 }
 
 /* Company title */
@@ -121,7 +124,7 @@
   margin: 0 0 12px 0;
   font-size: 1.8em;
   font-weight: 700;
-  color: #333;
+  color: var(--experiences-text-color);
 }
 
 /* Emojis for labeling */
@@ -139,14 +142,14 @@
   margin: 8px 0;
   line-height: 1.6;
   font-size: 1.05rem;
-  color: #444;
+  color: var(--experiences-text-color);
 }
 
 .role strong,
 .duration strong,
 .techStack strong,
 .awards strong {
-  color: #555;
+  color: var(--experiences-text-color);
   margin-right: 4px;
   font-weight: 600;
 }
