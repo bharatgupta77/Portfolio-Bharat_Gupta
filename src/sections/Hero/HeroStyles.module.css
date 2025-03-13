@@ -23,9 +23,25 @@
       margin: 0;
 
       img {
-        width: 30px;
+        width: 50px;
       }
     }
+  }
+
+  .img_light {
+    width: 36px;
+    border-radius: 7px;
+    margin-left: 5px;
+    margin-right: 3px;
+
+    border: 3px solid white;
+  }
+
+  .img_dark {
+    width: 41px;
+    border-radius: 8px;
+    margin-left: 5px;
+    border: 3px solid white;
   }
 
   a {
