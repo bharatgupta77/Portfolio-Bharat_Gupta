@@ -35,7 +35,12 @@ function Hero() {
     theme === "light" ? styles.img_dark : styles.img_light;
 
   return (
-    <section id="hero" className={styles.container}>
+    <section
+      id="hero"
+      className={`${styles.container} ${styles.heroFullWidth} ${
+        theme === "light" ? styles.lightBackground : styles.darkBackground
+      }`}
+    >
       <div className={styles.colorModeContainer}>
         <img
           src={profilePicIcon}

@@ -1,3 +1,11 @@
+.lightBackground {
+  background-image: url("../../assets/hero_bg_white.jpg");
+}
+
+.darkBackground {
+  background-image: url("../../assets/Hero_bg.jpg");
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,6 +14,10 @@
   text-align: center;
   height: 80dvh;
   min-height: 500px;
+
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 
   .hero {
     width: 200px; /* Adjust size as needed */
@@ -70,6 +82,21 @@
     transform: translateY(2px);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
   }
+}
+
+/* This class breaks out of the parent’s centered layout */
+.heroFullWidth {
+  /* Force the section to be as wide as the viewport */
+  width: 100vw;
+
+  /* The “magic” that counters the parent’s centering:
+     Moves the section left by half of its own width (50vw)
+     and then right by half of its own width */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  /* Optional: If you have horizontal scrollbar issues, you can set overflow-x to hidden */
+  overflow-x: hidden;
 }
 
 .colorModeContainer {
