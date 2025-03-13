@@ -30,6 +30,11 @@
 
   --burger-background-bar: #222;
   --burger-bar-text-color: #222;
+
+  --experiences-text-color-heading: #222;
+  --experiences-bg-color: #fff;
+  --tab-atechnos-color: #222;
+  --experiences-text-color: #222;
 }
 
 [data-theme="dark"] {
@@ -60,7 +65,6 @@
 
   --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
 
-  --burger-background-bar: #fff;
   --burger-bar-text-color: #fff;
 
   /* NavBar */
@@ -68,6 +72,11 @@
   --navbarList-text-color: #fff;
   --navbar-background: #222;
   --navbar-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+
+  --experiences-text-color-heading: #fff;
+  --experiences-bg-color: #292727;
+  --tab-atechnos-color: #ee2f5a;
+  --experiences-text-color: #fff;
 }
 
 body {
