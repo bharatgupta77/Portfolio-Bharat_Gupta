@@ -5,6 +5,21 @@
   position: relative;
 }
 
+/* This class breaks out of the parent’s centered layout */
+.educationFullWidth {
+  /* Force the section to be as wide as the viewport */
+  width: 100vw;
+
+  /* The “magic” that counters the parent’s centering:
+     Moves the section left by half of its own width (50vw)
+     and then right by half of its own width */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  /* Optional: If you have horizontal scrollbar issues, you can set overflow-x to hidden */
+  overflow-x: hidden;
+}
+
 .heading {
   text-align: center;
   margin-bottom: 48px;
