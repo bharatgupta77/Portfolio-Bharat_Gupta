@@ -5,15 +5,12 @@
   position: relative;
 }
 
-/* This class breaks out of the parent’s centered layout */
 .educationFullWidth {
-  /* Force the section to be as wide as the viewport */
   width: 100vw;
 
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 
-  /* Optional: If you have horizontal scrollbar issues, you can set overflow-x to hidden */
   overflow-x: hidden;
 }
 
