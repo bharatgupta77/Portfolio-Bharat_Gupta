@@ -10,9 +10,6 @@
   /* Force the section to be as wide as the viewport */
   width: 100vw;
 
-  /* The “magic” that counters the parent’s centering:
-     Moves the section left by half of its own width (50vw)
-     and then right by half of its own width */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 
