@@ -28,4 +28,6 @@ Vite.js – For fast development, optimized builds, and a better developer exper
 
 ✔️ Burger Option - For Mobile screens.
 
+✔️ Carousel like feature with Top Tabs(Education section)
+
 This portfolio is still a work in progress—stay tuned for more updates!
