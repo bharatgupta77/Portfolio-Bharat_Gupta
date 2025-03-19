@@ -25,7 +25,8 @@ const educationData = [
     institution: "Pune Institute of Computer Technology",
     degree: "Bachelor of Engineering in Computer Engineering",
     coursework: [
-      "Algorithms and Data Structures",
+      "Data Structures",
+      "Algorithms",
       "Database Management",
       "OOPS in Java",
       "Python Programming",
@@ -33,6 +34,8 @@ const educationData = [
       "Operating Systems",
       "Data Analytics",
       "Machine Learning",
+      "Human Computer Interaction",
+      "Computer Networks",
     ],
     awards:
       "Best Final Year Project, Smart India Hackathon(National Level) - Finalists",
