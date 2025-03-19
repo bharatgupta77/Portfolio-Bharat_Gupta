@@ -16,6 +16,7 @@ const educationData = [
       "AWS - Solution Architect",
       "Cloud Computing Fundamentals",
       "Technology and New Product Development",
+      "American Healthcare",
     ],
     awards: "Program Excellence Scholarship",
   },
