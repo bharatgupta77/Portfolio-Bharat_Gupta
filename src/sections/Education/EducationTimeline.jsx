@@ -19,7 +19,7 @@ const educationData = [
       "American Healthcare",
       "Spreadsheet Modeling",
     ],
-    awards: "Program Excellence Scholarship",
+    awards: "JSOM Program Excellence Scholarship",
   },
   {
     year: "2016 - 2020",
