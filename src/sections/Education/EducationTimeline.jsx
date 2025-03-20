@@ -17,6 +17,7 @@ const educationData = [
       "Cloud Computing Fundamentals",
       "Technology and New Product Development",
       "American Healthcare",
+      "Spreadsheet Modeling",
     ],
     awards: "Program Excellence Scholarship",
   },
