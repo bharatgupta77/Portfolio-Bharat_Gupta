@@ -23,7 +23,7 @@ const educationData = [
   },
   {
     year: "2016 - 2020",
-    institution: "Pune Institute of Computer Technology",
+    institution: "SCTR Pune Institute of Computer Technology",
     degree: "Bachelor of Engineering in Computer Engineering",
     coursework: [
       "Data Structures",
