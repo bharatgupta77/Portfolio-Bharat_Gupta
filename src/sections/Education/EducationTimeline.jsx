@@ -75,7 +75,7 @@ const EducationTimeline = () => {
                 <strong>Awards & Recognition:</strong> {edu.awards}
               </p>
             </div>
-            <div className={styles.point}></div>
+            <div className={styles.point}>Need to add</div>
           </motion.div>
         ))}
       </div>
