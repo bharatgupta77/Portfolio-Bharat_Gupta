@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <hr />
       <div className={styles.footerContainer}>
-        <h2>Building digital experiences with passion.</h2>
+        <h2>Bringing ideas to life through code, creativity, and passion.</h2>
       </div>
       <div className={styles.footerBottom}>
         <p>
