@@ -37,6 +37,7 @@ const educationData = [
       "Machine Learning",
       "Human Computer Interaction",
       "Computer Networks",
+      "Programming in C/C++",
     ],
     awards:
       "Best Final Year Project, Smart India Hackathon(National Level) - Finalists",
