@@ -32,6 +32,19 @@
   --education-text-color-heading: #222;
   --education-bg-color: #fff;
   --education-text-color: #222;
+
+  --contact-card-bg: #ffffff;
+  --contact-border-color: #e0e0e0;
+  --contact-input-bg: #ffffff;
+  --contact-text-color: #1a1a1a;
+  --contact-label-color: #333333;
+  --contact-primary-color: #4f46e5; /* Indigo-600 */
+  --contact-primary-color-hover: #4338ca; /* Indigo-700 */
+  --contact-btn-text: #ffffff;
+  --contact-info-text-color: #333333;
+  --contact-heading: #333333;
+
+  --contact-right-border-color: #e0e0e0;
 }
 
 [data-theme="dark"] {
@@ -71,6 +84,18 @@
   --education-bg-color: #292727;
   --education-text-color: #fff;
   --education-headingText-color: #fff;
+
+  --contact-card-bg: #292727;
+  --contact-border-color: rgba(255, 255, 255, 0.01);
+  --contact-right-border-color: #464545;
+  --contact-input-bg: #fff;
+  --contact-text-color: #f5f5f5;
+  --contact-label-color: #bbbbbb;
+  --contact-primary-color: #6366f1; /* Indigo-500 */
+  --contact-primary-color-hover: #818cf8; /* Indigo-400 */
+  --contact-btn-text: #ffffff;
+  --contact-info-text-color: #bbbbbb;
+  --contact-heading: #bbbbbb;
 }
 
 body {
