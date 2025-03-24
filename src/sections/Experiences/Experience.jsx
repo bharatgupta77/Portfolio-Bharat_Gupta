@@ -13,8 +13,9 @@ const experienceData = [
     duration: "📅 Sept 2020 - July 2024",
     description:
       "💡 Developed innovative solutions and optimized performance for the platform.",
-    techStack: "React, Node.js, GraphQL",
-    awards: "🏆 Employee of the Month",
+    techStack:
+      "Android, Kotlin, Python, Java, HTML, CSS, APIs, Postman, Splunk, Figma, UI/UX, Mobile development, Web development",
+    awards: "🏆 Star Performer X 1, Pat on the Back X 3",
   },
   {
     id: 2,
@@ -24,7 +25,7 @@ const experienceData = [
     duration: "📅 June 2020 - Aug 2020",
     description:
       "🎯 Built user-friendly interfaces and improved accessibility standards.",
-    techStack: "Vue.js, Sass, JavaScript",
+    techStack: "HTML, CSS, JavaScript, Bootstrap, JQuery, AJAX, SQL, Python",
     awards: "🏅 Best UI/UX Design Award",
   },
   {
@@ -35,7 +36,8 @@ const experienceData = [
     duration: "📅 August 2019 - May 2020",
     description:
       "🧩 Worked on both backend and frontend development ensuring robust applications.",
-    techStack: "Angular, Python, Django",
+    techStack:
+      "Python, Machine Learning, Deep Learning, PyQT, PyTorch, CNN, Data Analytics, Data Visualization",
     awards: "🏆 Team Excellence Award",
   },
 ];
@@ -52,8 +54,8 @@ const ExperienceTimeline = () => {
             key={exp.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false }}
             className={styles.entry}
           >
             <div

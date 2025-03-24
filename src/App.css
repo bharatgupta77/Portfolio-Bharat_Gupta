@@ -6,8 +6,6 @@
   --text-color: #222;
   --form-text-color: #555;
   --footer-text-color: #888;
-  --education-text-color: #555;
-  --education-headingText-color: #555;
 
   --card-bg: #ffffff; /* ✅ White cards */
   --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
@@ -31,10 +29,9 @@
   --burger-background-bar: #222;
   --burger-bar-text-color: #222;
 
-  --experiences-text-color-heading: #222;
-  --experiences-bg-color: #fff;
-  --tab-atechnos-color: #222;
-  --experiences-text-color: #222;
+  --education-text-color-heading: #222;
+  --education-bg-color: #fff;
+  --education-text-color: #222;
 }
 
 [data-theme="dark"] {
@@ -45,8 +42,6 @@
   --text-color: #fff;
   --form-text-color: #fff;
   --footer-text-color: #bbb;
-  --education-text-color: #fff;
-  --education-headingText-color: #fff;
 
   --card-bg: #292727; /* ✅ Dark cards */
   --card-border: rgba(255, 255, 255, 0.01); /* ✅ Soft white border */
@@ -73,10 +68,9 @@
   --navbar-background: #222;
   --navbar-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 
-  --experiences-text-color-heading: #fff;
-  --experiences-bg-color: #292727;
-  --tab-atechnos-color: #ee2f5a;
-  --experiences-text-color: #fff;
+  --education-bg-color: #292727;
+  --education-text-color: #fff;
+  --education-headingText-color: #fff;
 }
 
 body {
@@ -85,7 +79,7 @@ body {
   justify-content: center;
   margin: 0 auto;
   overflow-x: hidden;
-  width: 100%;
+  width: 98%;
 }
 
 #root {
