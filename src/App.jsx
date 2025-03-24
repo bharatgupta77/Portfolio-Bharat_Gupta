@@ -1,4 +1,5 @@
 import "./App.css";
+import Contact from "./sections/Contact/Contact";
 import Education from "./sections/Education/Education";
 import Experience from "./sections/Experiences/Experience";
 import Footer from "./sections/Footer/Footer";
@@ -16,6 +17,7 @@ function App() {
       <Experience />
       <Projects />
       <Skills />
+      <Contact />
       <Footer />
     </>
   );
