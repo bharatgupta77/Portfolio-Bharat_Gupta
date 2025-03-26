@@ -157,7 +157,7 @@ const Education = () => {
                   <span role="img" aria-label="Award">
                     🏆
                   </span>{" "}
-                  <strong>Awards:</strong> {edu.awards}
+                  <strong>Awards and Recognition:</strong> {edu.awards}
                 </motion.p>
               </div>
             </motion.div>
