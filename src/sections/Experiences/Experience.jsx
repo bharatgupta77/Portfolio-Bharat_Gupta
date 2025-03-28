@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import styles from "./experience.module.css";
+import styles from "./Experience.module.css";
 import hsbc from "../../assets/hsbc_logo.png";
 import atechnos from "../../assets/atechnos_logo.jpeg";
 import persistent_systems from "../../assets/persistent.png";
