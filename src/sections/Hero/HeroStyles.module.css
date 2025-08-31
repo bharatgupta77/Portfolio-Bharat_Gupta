@@ -15,92 +15,83 @@
   height: 80dvh;
   min-height: 500px;
 
-  background-size: cover; /* Ensures the image covers the container */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-
-  .hero {
-    width: 200px; /* Adjust size as needed */
-    height: 200px; /* Ensure width and height are equal */
-    border-radius: 50%; /* Makes it a circle */
-    object-fit: cover; /* Ensures the image fills the circle */
-  }
-
-  span {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-
-    a {
-      margin: 0;
-
-      img {
-        width: 50px;
-      }
-    }
-  }
-
-  .img_light {
-    width: 36px;
-    border-radius: 7px;
-    margin-left: 5px;
-    margin-right: 3px;
-
-    border: 3px solid white;
-  }
-
-  .img_dark {
-    width: 41px;
-    border-radius: 8px;
-    margin-left: 5px;
-    border: 3px solid white;
-  }
-
-  a {
-    width: fit-content;
-    align-self: center;
-  }
-
-  button {
-    background-color: var(--btn-color);
-    color: var(--btn-text-color);
-    border: none;
-    border-radius: 20px;
-    width: 126px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-  button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* This class breaks out of the parent’s centered layout */
+.hero {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.container span {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.container span a {
+  margin: 0;
+}
+
+.container span a img {
+  width: 50px;
+}
+
+.img_light {
+  width: 36px;
+  border-radius: 7px;
+  margin-left: 5px;
+  margin-right: 3px;
+  border: 3px solid white;
+}
+
+.img_dark {
+  width: 41px;
+  border-radius: 8px;
+  margin-left: 5px;
+  border: 3px solid white;
+}
+
+.container a {
+  width: fit-content;
+  align-self: center;
+}
+
+.container button {
+  background-color: var(--btn-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 20px;
+  width: 126px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.container button:hover {
+  transform: scale(1.05);
+}
+
+.container button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
 .heroFullWidth {
-  /* Force the section to be as wide as the viewport */
-  width: 100vw;
-
-  /* The “magic” that counters the parent’s centering:
-     Moves the section left by half of its own width (50vw)
-     and then right by half of its own width */
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  /* Optional: If you have horizontal scrollbar issues, you can set overflow-x to hidden */
-  overflow-x: hidden;
+  width: 100%;
+  /* Removed the viewport width and negative margins */
 }
 
 .colorModeContainer {
   position: relative;
+  padding: 20px;
+  margin-top: 4%;
 }
 
 .colorMode {
@@ -115,6 +106,27 @@
 
 .description {
   max-width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.2em;
+  flex-wrap: wrap;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.textContainer {
+  position: absolute;
+  left: 30%;
+  top: 15%;
+  width: 45%;
+  max-width: 600px;
+  height: 50%;
+  padding: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .info {
@@ -122,39 +134,94 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  width: 100%;
+}
+
+.typingText {
+  font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
+  font-weight: 500;
+  font-size: 28px;
+  min-height: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #00ff88, #00aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+@supports not (-webkit-background-clip: text) {
+  .typingText {
+    background: none;
+    -webkit-text-fill-color: unset;
+    color: #00ff88;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:global(.cursor-pulse) {
+  animation: pulse 1.5s infinite;
 }
 
 @media (width >= 800px) {
   .container {
-    flex-direction: row-reverse;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     height: 70dvh;
+  }
 
-    .hero {
-      width: 400px; /* Adjust size as needed */
-      height: 400px; /* Ensure width and height are equal */
-      border-radius: 50%; /* Makes it a circle */
-      object-fit: cover; /* Ensures the image fills the circle */
-    }
+  .hero {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .description {
     max-width: 50vw;
+  }
+
+  .typingText {
+    font-size: 32px;
   }
 }
 
 @media (width >= 1400px) {
   .container {
     height: 70dvh;
-    .hero {
-      max-width: 400px;
-      width: 400px;
-    }
+  }
+
+  .hero {
+    max-width: 400px;
+    width: 400px;
   }
 
   .description {
     max-width: 50vw;
+  }
+
+  .typingText {
+    font-size: 36px;
   }
 }
 
