@@ -38,7 +38,7 @@
 }
 
 .container span a img {
-  width: 50px;
+  width: 40px;
 }
 
 .img_light {
@@ -117,7 +117,7 @@
 
 .textContainer {
   position: absolute;
-  left: 30%;
+  left: 25%;
   top: 15%;
   width: 45%;
   max-width: 600px;
@@ -130,17 +130,18 @@
 }
 
 .info {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   width: 100%;
+  min-height: 300px;
 }
 
 .typingText {
   font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
   min-height: 1.8em;
   display: flex;
   align-items: center;
@@ -191,10 +192,29 @@
   }
 
   .hero {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  .description {
+    max-width: 50vw;
+  }
+
+  .typingText {
+    font-size: 28px;
+  }
+}
+
+@media (width >= 1400px) {
+  .container {
+    height: 70dvh;
+  }
+
+  .hero {
+    max-width: 300px;
+    width: 300px;
   }
 
   .description {
@@ -206,27 +226,92 @@
   }
 }
 
-@media (width >= 1400px) {
+@media (max-width: 1425px) {
   .container {
-    height: 70dvh;
+    margin-top: 7%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
   }
 
-  .hero {
-    max-width: 400px;
-    width: 400px;
+  .colorModeContainer {
+    position: static;
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .description {
-    max-width: 50vw;
+  .textContainer {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 90%;
+    max-width: none;
+    height: auto;
+    padding: 0 20px;
   }
 
-  .typingText {
-    font-size: 36px;
+  .info {
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .info h1,
+  .info h2,
+  .info span,
+  .info p {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+  }
+
+  .resumeButton {
+    top: 20px;
+    right: 20px;
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin-top: 7%;
-  }
+.resumeButton {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--resume-btn-color, #222222);
+  backdrop-filter: blur(10px);
+  color: var(--resume-btn-text-color, white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.resumeButton:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.resumeButton span {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.resumeButton svg {
+  transition: transform 0.3s ease;
+}
+
+.resumeButton:hover svg {
+  transform: translateY(2px);
 }

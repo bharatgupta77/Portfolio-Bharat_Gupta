@@ -37,7 +37,7 @@ const useTypewriter = (text, shouldStart = false) => {
       const timeout = setTimeout(() => {
         setDisplayedText(prev => prev + text[currentIndex]);
         setCurrentIndex(prev => prev + 1);
-      }, 100);
+      }, 70);
       return () => clearTimeout(timeout);
     }
   }, [shouldStart, currentIndex, text]);
@@ -50,17 +50,33 @@ function Hero() {
   const [imagePhase, setImagePhase] = useState('appearing'); // 'appearing', 'centered', 'movingRight', 'positioned'
   const [showTextContainer, setShowTextContainer] = useState(false);
   const [showSocialIcons, setShowSocialIcons] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Typing animations with proper sequencing
   const [showNameTyping, setShowNameTyping] = useState(false);
   const [showRoleTyping, setShowRoleTyping] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
-  const [showResumeButton, setShowResumeButton] = useState(false);
   
   // Simple typewriter calls
   const nameText = useTypewriter("Bharat Gupta", showNameTyping);
   const roleText = useTypewriter("Software Developer", showRoleTyping);
   const descriptionText = useTypewriter("Driven by a passion for crafting high-impact projects and committed to making meaningful, lasting contributions.", showDescription);
+
+  // Handle screen resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1425);
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Handle the complete animation sequence
   useEffect(() => {
@@ -92,22 +108,19 @@ function Hero() {
     // Phase 6: Start role typing after name completes
     const roleTimer = setTimeout(() => {
       setShowRoleTyping(true);
-    }, 7500);
+    }, 6800);
 
     // Phase 7: Show social icons after role typing
     const socialTimer = setTimeout(() => {
       setShowSocialIcons(true);
-    }, 9500);
+    }, 8200);
 
     // Phase 8: Show description after social icons appear
     const descriptionTimer = setTimeout(() => {
       setShowDescription(true);
-    }, 10000);
+    }, 8700);
 
-    // Phase 9: Show resume button after description completes typing
-    const resumeTimer = setTimeout(() => {
-      setShowResumeButton(true);
-    }, 22000); // Show right after description finishes
+ // Show right after description finishes
 
     return () => {
       clearTimeout(centeredTimer);
@@ -118,7 +131,6 @@ function Hero() {
       clearTimeout(roleTimer);
       clearTimeout(socialTimer);
       clearTimeout(descriptionTimer);
-      clearTimeout(resumeTimer);
     };
   }, []);
 
@@ -158,8 +170,7 @@ function Hero() {
                  imagePhase === 'movingRight' ? 0.9 : 1,
           x: imagePhase === 'appearing' ? 0 :
              imagePhase === 'centered' ? 0 :
-             imagePhase === 'movingRight' ? '20vw' :
-             '20vw' // Final position: 80% from left (30vw = ~80% from left)
+             isMobile ? 0 : '30vw' // Stay centered on mobile, move right on desktop
         }}
         transition={{ 
           opacity: { duration: 2.0, ease: "easeOut" },
@@ -187,13 +198,19 @@ function Hero() {
         >
           <div className={styles.info}>
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showNameTyping ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: showNameTyping ? 1 : 0,
+            y: showNameTyping ? 0 : 20
+          }}
+          transition={{ duration: 0.5 }}
           style={{ 
             textAlign: 'center',
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
-            visibility: showNameTyping ? 'visible' : 'hidden'
+            fontSize: '32px',
+            position: 'absolute',
+            top: '40px',
+            width: '100%'
           }}
         >
           {nameText}
@@ -201,11 +218,16 @@ function Hero() {
         
         <motion.h2 
           className={styles.typingText}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showRoleTyping ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: showRoleTyping ? 1 : 0,
+            y: showRoleTyping ? 0 : 20
+          }}
+          transition={{ duration: 0.5 }}
           style={{
-            visibility: showRoleTyping ? 'visible' : 'hidden'
+            position: 'absolute',
+            top: '100px',
+            width: '100%'
           }}
         >
           {roleText}
@@ -216,9 +238,17 @@ function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 
-              duration: 0.8, 
+              duration: 0.6, 
               ease: "backOut",
-              staggerChildren: 0.1
+              staggerChildren: 0.05
+            }}
+            style={{
+              position: 'absolute',
+              top: '160px',
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '25px'
             }}
           >
             <motion.a 
@@ -274,39 +304,43 @@ function Hero() {
         {showDescription && (
         <motion.p 
           className={styles.description}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           style={{ 
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
-            fontSize: '16px',
-            lineHeight: '1.6'
+            fontSize: '14px',
+            lineHeight: '1.6',
+            position: 'absolute',
+            top: '220px',
+            width: '100%',
+            textAlign: 'center'
           }}
         >
           {descriptionText}
         </motion.p>
         )}
 
-        {showResumeButton && (
-        <motion.a 
-          href={CV} 
-          download
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <motion.button 
-            className="hover"
-            whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Resume
-          </motion.button>
-        </motion.a>
-        )}
           </div>
         </motion.div>
       )}
+      
+      {/* Resume button in top right corner */}
+      <motion.a 
+        href={CV} 
+        download
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className={styles.resumeButton}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span>Resume</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+      </motion.a>
     </motion.section>
   );
 }
