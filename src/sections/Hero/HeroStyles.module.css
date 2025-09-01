@@ -270,8 +270,11 @@
   }
 
   .resumeButton {
-    top: 20px;
-    right: 20px;
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    margin-top: 30px;
+    align-self: center;
   }
 }
 
@@ -313,5 +316,46 @@
 }
 
 .resumeButton:hover svg {
+  transform: translateY(2px);
+}
+
+.resumeButtonHorizontal {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--resume-btn-color, #222222);
+  backdrop-filter: blur(10px);
+  color: var(--resume-btn-text-color, white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.resumeButtonHorizontal:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.resumeButtonHorizontal span {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.resumeButtonHorizontal svg {
+  transition: transform 0.3s ease;
+}
+
+.resumeButtonHorizontal:hover svg {
   transform: translateY(2px);
 }

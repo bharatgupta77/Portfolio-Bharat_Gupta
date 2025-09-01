@@ -321,26 +321,47 @@ function Hero() {
         </motion.p>
         )}
 
+        {/* Resume button - shows below description in vertical layout only */}
+        {isMobile && (
+          <motion.a 
+            href={CV} 
+            download
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className={styles.resumeButton}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span>Resume</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+          </motion.a>
+        )}
+
           </div>
         </motion.div>
       )}
       
-      {/* Resume button in top right corner */}
-      <motion.a 
-        href={CV} 
-        download
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 1 }}
-        className={styles.resumeButton}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <span>Resume</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-        </svg>
-      </motion.a>
+      {/* Resume button for horizontal layout (top right corner) */}
+      {!isMobile && (
+        <motion.a 
+          href={CV} 
+          download
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className={styles.resumeButtonHorizontal}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span>Resume</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          </svg>
+        </motion.a>
+      )}
     </motion.section>
   );
 }
