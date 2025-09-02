@@ -60,7 +60,7 @@ function Hero() {
   // Simple typewriter calls
   const nameText = useTypewriter("Bharat Gupta", showNameTyping);
   const roleText = useTypewriter("Software Developer", showRoleTyping);
-  const descriptionText = useTypewriter("Driven by a passion for crafting high-impact projects and committed to making meaningful, lasting contributions.", showDescription);
+  const descriptionText = "Driven by a passion for crafting high-impact projects and committed to making meaningful, lasting contributions.";
 
   // Handle screen resize
   useEffect(() => {
@@ -170,7 +170,7 @@ function Hero() {
                  imagePhase === 'movingRight' ? 0.9 : 1,
           x: imagePhase === 'appearing' ? 0 :
              imagePhase === 'centered' ? 0 :
-             isMobile ? 0 : '30vw' // Stay centered on mobile, move right on desktop
+             isMobile ? 0 : '27vw' // Stay centered on mobile, move right on desktop
         }}
         transition={{ 
           opacity: { duration: 2.0, ease: "easeOut" },
@@ -244,7 +244,7 @@ function Hero() {
             }}
             style={{
               position: 'absolute',
-              top: '160px',
+              top: '170px',
               width: '100%',
               display: 'flex',
               justifyContent: 'center',
@@ -257,8 +257,6 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              whileHover={{ scale: 1.2, y: -5 }}
-              whileTap={{ scale: 0.9 }}
             >
               <img src={githubIcon} alt="GitHub" />
             </motion.a>
@@ -269,8 +267,6 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              whileHover={{ scale: 1.2, y: -5 }}
-              whileTap={{ scale: 0.9 }}
             >
               <img src={linkedinIcon} alt="LinkedIn" />
             </motion.a>
@@ -281,8 +277,6 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              whileHover={{ scale: 1.2, y: -5 }}
-              whileTap={{ scale: 0.9 }}
             >
               <img className={leetcode_img_style} src={leetcodeIcon} alt="LeetCode" />
             </motion.a>
@@ -293,8 +287,6 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.2, y: -5 }}
-              whileTap={{ scale: 0.9 }}
             >
               <img className={leetcode_img_style} src={hackerrankIcon} alt="HackerRank" />
             </motion.a>
@@ -304,15 +296,19 @@ function Hero() {
         {showDescription && (
         <motion.p 
           className={styles.description}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ 
+            duration: 0.8,
+            ease: "easeOut",
+            scale: { duration: 0.6, ease: "easeOut" }
+          }}
           style={{ 
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
             fontSize: '14px',
             lineHeight: '1.6',
             position: 'absolute',
-            top: '220px',
+            top: '260px',
             width: '100%',
             textAlign: 'center'
           }}
