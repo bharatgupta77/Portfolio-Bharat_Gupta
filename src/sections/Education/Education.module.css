@@ -1,7 +1,8 @@
 .container {
-  width: 40%;
+  width: 85%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
   margin-top: 5%;
 }
 
@@ -43,14 +44,14 @@
 
 .card::before {
   left: 0;
-  background: linear-gradient(to bottom, #f99a5e, #0072ff);
+  background: linear-gradient(to bottom, var(--brand-color-1, #f99a5e), var(--brand-color-2, #0072ff));
   border-top-left-radius: 32px;
   border-bottom-left-radius: 16px;
 }
 
 .card::after {
   right: 0;
-  background: linear-gradient(to bottom, #f99a5e, #0072ff);
+  background: linear-gradient(to bottom, var(--brand-color-1, #f99a5e), var(--brand-color-2, #0072ff));
   border-top-right-radius: 16px;
   border-bottom-right-radius: 32px;
 }
@@ -93,11 +94,101 @@
   font-size: 1.05rem;
   margin: 18px 0;
   line-height: 1.6;
+  display: flex;
+  align-items: center;
 }
 
 .coursework strong,
 .awards strong {
   font-weight: 600;
+}
+
+/* Coursework Tags */
+.courseworkContainer {
+  margin: 18px 0;
+}
+
+.courseworkHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  color: var(--education-text-color);
+}
+
+.courseworkTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tag {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(167, 139, 250, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--education-text-color);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+}
+
+.tag:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(167, 139, 250, 0.2));
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Duration highlighting */
+.yearHighlighted {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.durationBadge {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 8px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+/* Progress indicators */
+.progressContainer {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 6px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  border-radius: 3px;
+  transition: width 0.8s ease;
+}
+
+.progressText {
+  font-size: 0.8rem;
+  color: var(--education-text-color);
+  opacity: 0.8;
+  font-weight: 500;
 }
 
 /* Responsive Media Queries */
