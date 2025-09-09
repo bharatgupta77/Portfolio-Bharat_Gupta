@@ -56,11 +56,13 @@ function Hero() {
   const [showNameTyping, setShowNameTyping] = useState(false);
   const [showRoleTyping, setShowRoleTyping] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
+  const [showQuoteTyping, setShowQuoteTyping] = useState(false);
   
   // Simple typewriter calls
   const nameText = useTypewriter("Bharat Gupta", showNameTyping);
   const roleText = useTypewriter("Software Developer", showRoleTyping);
   const descriptionText = "Driven by a passion for crafting high-impact projects and committed to making meaningful, lasting contributions.";
+  const quoteText = useTypewriter("\"Strive not to be a success, but rather to be of value\" - Albert Einstein", showQuoteTyping);
 
   // Handle screen resize
   useEffect(() => {
@@ -120,7 +122,10 @@ function Hero() {
       setShowDescription(true);
     }, 8700);
 
- // Show right after description finishes
+    // Phase 9: Start quote typing after description appears (with some delay)
+    const quoteTimer = setTimeout(() => {
+      setShowQuoteTyping(true);
+    }, 10200); // Start after description is visible for 1.5 seconds
 
     return () => {
       clearTimeout(centeredTimer);
@@ -131,6 +136,7 @@ function Hero() {
       clearTimeout(roleTimer);
       clearTimeout(socialTimer);
       clearTimeout(descriptionTimer);
+      clearTimeout(quoteTimer);
     };
   }, []);
 
@@ -317,47 +323,128 @@ function Hero() {
         </motion.p>
         )}
 
-        {/* Resume button - shows below description in vertical layout only */}
-        {isMobile && (
-          <motion.a 
-            href={CV} 
-            download
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className={styles.resumeButton}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>Resume</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-            </svg>
-          </motion.a>
+        {/* Einstein Quote - Inside text container for mobile */}
+        {isMobile && showQuoteTyping && (
+        <motion.p 
+          className={styles.quote}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.6,
+            ease: "easeOut"
+          }}
+          style={{ 
+            fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
+            fontSize: '11px',
+            lineHeight: '1.4',
+            position: 'absolute',
+            top: '400px',
+            width: '100%',
+            textAlign: 'center',
+            fontStyle: 'italic',
+            opacity: 0.7,
+            margin: 0,
+            padding: '0 20px',
+            color: 'var(--text-color)'
+          }}
+        >
+          {quoteText}
+        </motion.p>
         )}
+
+
 
           </div>
         </motion.div>
       )}
       
-      {/* Resume button for horizontal layout (top right corner) */}
-      {!isMobile && (
-        <motion.a 
-          href={CV} 
-          download
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className={styles.resumeButtonHorizontal}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+      {/* Resume button for all screen sizes (top right corner) */}
+      <motion.a 
+        href={CV} 
+        download
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className={styles.resumeButtonHorizontal}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span>Resume</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+      </motion.a>
+
+      {/* Einstein Quote - Desktop only (bottom left corner) */}
+      {!isMobile && showQuoteTyping && (
+        <motion.div
+          className={styles.quoteIndicator}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{
+            position: 'absolute',
+            bottom: '30px',
+            left: '30px',
+            maxWidth: '400px',
+            textAlign: 'left',
+            zIndex: 10
+          }}
         >
-          <span>Resume</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-          </svg>
-        </motion.a>
+          <motion.p 
+            style={{ 
+              fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
+              fontSize: '12px',
+              lineHeight: '1.4',
+              textAlign: 'left',
+              fontStyle: 'italic',
+              opacity: 0.7,
+              margin: 0,
+              padding: '0 20px',
+              color: 'var(--text-color)'
+            }}
+          >
+            {quoteText}
+          </motion.p>
+        </motion.div>
       )}
+
+
+      {/* Scroll indicator arrow */}
+      <motion.div
+        className={styles.scrollIndicator}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 9, duration: 0.8 }}
+        onClick={() => {
+          const educationSection = document.getElementById('education');
+          if (educationSection) {
+            const offset = 80; // Offset to account for margin and show heading properly
+            const elementPosition = educationSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }}
+      >
+        <motion.div
+          className={styles.scrollArrow}
+          animate={{ y: [0, 10, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+          </svg>
+        </motion.div>
+        <span className={styles.scrollText}>Scroll Down for More</span>
+      </motion.div>
     </motion.section>
   );
 }

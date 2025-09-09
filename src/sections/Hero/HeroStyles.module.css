@@ -14,8 +14,8 @@
   justify-content: center;
   gap: 20px;
   text-align: center;
-  height: 80dvh;
-  min-height: 500px;
+  height: 100vh;
+  min-height: 100vh;
 
   background-size: cover;
   background-position: center;
@@ -51,10 +51,62 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* LinkedIn normal state */
+.container span a[href*="linkedin"] {
+  background: linear-gradient(135deg, rgba(0, 119, 181, 0.2) 0%, rgba(0, 160, 220, 0.2) 100%);
+  border: 1px solid rgba(0, 119, 181, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 119, 181, 0.15);
+}
+
+/* GitHub normal state */
+.container span a[href*="github"] {
+  background: linear-gradient(135deg, rgba(51, 51, 51, 0.2) 0%, rgba(110, 64, 201, 0.2) 100%);
+  border: 1px solid rgba(110, 64, 201, 0.3);
+  box-shadow: 0 4px 16px rgba(110, 64, 201, 0.15);
+}
+
+/* LeetCode normal state */
+.container span a[href*="leetcode"] {
+  background: linear-gradient(135deg, rgba(255, 161, 22, 0.2) 0%, rgba(255, 140, 0, 0.2) 100%);
+  border: 1px solid rgba(255, 161, 22, 0.3);
+  box-shadow: 0 4px 16px rgba(255, 161, 22, 0.15);
+}
+
+/* HackerRank normal state */
+.container span a[href*="hackerrank"] {
+  background: linear-gradient(135deg, rgba(46, 200, 102, 0.2) 0%, rgba(0, 184, 148, 0.2) 100%);
+  border: 1px solid rgba(46, 200, 102, 0.3);
+  box-shadow: 0 4px 16px rgba(46, 200, 102, 0.15);
+}
+
 .container span a:hover {
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* LinkedIn brand color */
+.container span a[href*="linkedin"]:hover {
+  background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+}
+
+/* GitHub brand color */
+.container span a[href*="github"]:hover {
+  background: linear-gradient(135deg, #333 0%, #6e40c9 100%);
+  box-shadow: 0 6px 20px rgba(110, 64, 201, 0.4);
+}
+
+/* LeetCode brand color */
+.container span a[href*="leetcode"]:hover {
+  background: linear-gradient(135deg, #ffa116 0%, #ff8c00 100%);
+  box-shadow: 0 6px 20px rgba(255, 161, 22, 0.4);
+}
+
+/* HackerRank brand color */
+.container span a[href*="hackerrank"]:hover {
+  background: linear-gradient(135deg, #2ec866 0%, #00b894 100%);
+  box-shadow: 0 6px 20px rgba(46, 200, 102, 0.4);
 }
 
 .container span a img {
@@ -100,9 +152,9 @@
 }
 
 .heroFullWidth {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .colorModeContainer {
@@ -110,6 +162,7 @@
   padding: 20px;
   margin-top: 4%;
 }
+
 
 .colorMode {
   position: absolute;
@@ -135,7 +188,7 @@
 .textContainer {
   position: absolute;
   left: 25%;
-  top: 15%;
+  top: 30%;
   width: 45%;
   max-width: 600px;
   height: 50%;
@@ -205,7 +258,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 85dvh;
+    height: 100vh;
+    min-height: 100vh;
   }
 
   .hero {
@@ -226,7 +280,8 @@
 
 @media (width >= 1400px) {
   .container {
-    height: 70dvh;
+    height: 100vh;
+    min-height: 100vh;
   }
 
   .hero {
@@ -246,10 +301,11 @@
 
 @media (max-width: 1425px) {
   .container {
-    margin-top: 7%;
+    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 20px;
   }
 
@@ -339,41 +395,138 @@
 
 .resumeButtonHorizontal {
   position: absolute;
-  top: 80px;
+  top: 100px;
   right: 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: var(--resume-btn-color, #222222);
-  backdrop-filter: blur(10px);
-  color: var(--resume-btn-text-color, white);
+  gap: 10px;
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  color: var(--text-color);
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
   z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .resumeButtonHorizontal:hover {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+  transform: scale(1.05);
 }
 
 .resumeButtonHorizontal span {
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .resumeButtonHorizontal svg {
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .resumeButtonHorizontal:hover svg {
+  transform: translateY(3px) scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Scroll Indicator Styles */
+.scrollIndicator {
+  position: absolute;
+  bottom: 30px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.scrollIndicator:hover {
+  transform: scale(1.1);
+}
+
+.scrollIndicator:active {
+  transform: scale(0.95);
+}
+
+.scrollArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scrollArrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+}
+
+.scrollArrow svg {
+  transition: transform 0.2s ease;
+}
+
+.scrollIndicator:hover .scrollArrow svg {
   transform: translateY(2px);
+}
+
+.scrollText {
+  font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
+  font-size: 11px;
+  color: var(--text-color);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.scrollIndicator:hover .scrollText {
+  opacity: 1;
+}
+
+/* Responsive styles for scroll indicator */
+@media (max-width: 1425px) {
+  .scrollIndicator {
+    position: absolute;
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+    margin: 0;
+    transform: none;
+  }
+
+  .scrollIndicator:hover {
+    transform: scale(1.1);
+  }
+
+  .scrollIndicator:active {
+    transform: scale(0.95);
+  }
 }
