@@ -2,142 +2,260 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Skills.module.css";
 import { useTheme } from "../../common/ThemeContext";
-import jsLight from "../../assets/js_light.png";
-import reactLight from "../../assets/react_light.png";
-import htmlLight from "../../assets/html_light.png";
-import cssLight from "../../assets/css_light.png";
-import bootstrapLight from "../../assets/Bootstrap_light.jpeg";
-import mongodbLight from "../../assets/mongodb_light.png";
-import mySQLLight from "../../assets/mysql_light.png";
-import postgresqlLight from "../../assets/postgreSQL.png";
-import pythonLight from "../../assets/python_light.png";
-import javaLight from "../../assets/java_light.png";
-import vsCodeLight from "../../assets/vs_code_light.png";
-import androidStudioLight from "../../assets/android_studio_light.png";
 
-const skillsData = [
-  {
-    category: "Frontend",
-    skills: [
-      {
-        name: "JavaScript",
-        imageLight: jsLight,
-        imageDark: jsLight,
-        desc: "",
-      },
-      {
-        name: "React.js",
-        imageLight: reactLight,
-        imageDark: reactLight,
-        desc: "",
-      },
-      {
-        name: "HTML5",
-        imageLight: htmlLight,
-        imageDark: htmlLight,
-        desc: "",
-      },
-      {
-        name: "CSS3",
-        imageLight: cssLight,
-        imageDark: cssLight,
-        desc: "",
-      },
-      {
-        name: "Bootstrap",
-        imageLight: bootstrapLight,
-        imageDark: bootstrapLight,
-        desc: "",
-      },
-    ],
-  },
-  {
-    category: "Backend",
-    skills: [
-      {
-        name: "Python",
-        imageLight: pythonLight,
-        imageDark: pythonLight,
-        desc: "",
-      },
-      {
-        name: "Java",
-        imageLight: javaLight,
-        imageDark: javaLight,
-        desc: "",
-      },
-    ],
-  },
-  {
-    category: "Database",
-    skills: [
-      {
-        name: "MongoDB",
-        imageLight: mongodbLight,
-        imageDark: mongodbLight,
-        desc: "",
-      },
-      {
-        name: "MySQL",
-        imageLight: mySQLLight,
-        imageDark: mySQLLight,
-        desc: "",
-      },
-      {
-        name: "PostgreSQL",
-        imageLight: postgresqlLight,
-        imageDark: postgresqlLight,
-        desc: "",
-      },
-    ],
-  },
-  {
-    category: "Tools",
-    skills: [
-      {
-        name: "Android Studio",
-        imageLight: androidStudioLight,
-        imageDark: androidStudioLight,
-        desc: "",
-      },
-      {
-        name: "VS Code",
-        imageLight: vsCodeLight,
-        imageDark: vsCodeLight,
-        desc: "",
-      },
-    ],
-  },
-];
+const skillsData = {
+  Frontend: [
+    {
+      name: "JavaScript",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+      brandColor: "#B8860B",
+      rating: 4,
+    },
+    {
+      name: "React.js",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+      brandColor: "#61DAFB",
+      rating: 4,
+    },
+    {
+      name: "HTML5",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+      brandColor: "#E34F26",
+      rating: 4,
+    },
+    {
+      name: "CSS3",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+      brandColor: "#1572B6",
+      rating: 4,
+    },
+    {
+      name: "Bootstrap",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg",
+      brandColor: "#7952B3",
+      rating: 4,
+    },
+    {
+      name: "Angular",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg",
+      brandColor: "#DD0031",
+      rating: 4,
+    },
+    {
+      name: "Android",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg",
+      brandColor: "#3DDC84",
+      rating: 4,
+    },
+  ],
+  Backend: [
+    {
+      name: "Python",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+      brandColor: "#3776AB",
+      rating: 4,
+    },
+    {
+      name: "Java",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+      brandColor: "#ED8B00",
+      rating: 3,
+    },
+    {
+      name: "Kotlin",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg",
+      brandColor: "#7F52FF",
+      rating: 4,
+    },
+  ],
+  Database: [
+    {
+      name: "MongoDB",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+      brandColor: "#47A248",
+      rating: 4,
+    },
+    {
+      name: "MySQL",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+      brandColor: "#4479A1",
+      rating: 5,
+    },
+    {
+      name: "PostgreSQL",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
+      brandColor: "#336791",
+      rating: 3,
+    },
+  ],
+  Tools: [
+    {
+      name: "Android Studio",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/androidstudio/androidstudio-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/androidstudio/androidstudio-original.svg",
+      brandColor: "#3DDC84",
+      rating: 4,
+    },
+    {
+      name: "VS Code",
+      imageLight: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
+      imageDark: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
+      brandColor: "#007ACC",
+      rating: 5,
+    },
+    {
+      name: "Postman",
+      imageLight: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+      imageDark: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+      brandColor: "#FF6C37",
+      rating: 4,
+    },
+    {
+      name: "IntelliJ IDEA",
+      imageLight: "https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.svg",
+      imageDark: "https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.svg",
+      brandColor: "#000000",
+      rating: 5,
+    },
+    {
+      name: "Figma",
+      imageLight: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg",
+      imageDark: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg",
+      brandColor: "#F24E1E",
+      rating: 3,
+    },
+    {
+      name: "DataGrip",
+      imageLight: "https://resources.jetbrains.com/storage/products/company/brand/logos/DataGrip_icon.svg",
+      imageDark: "https://resources.jetbrains.com/storage/products/company/brand/logos/DataGrip_icon.svg",
+      brandColor: "#22D88F",
+      rating: 3,
+    },
+    {
+      name: "Jupyter Notebook",
+      imageLight: "https://www.vectorlogo.zone/logos/jupyter/jupyter-icon.svg",
+      imageDark: "https://www.vectorlogo.zone/logos/jupyter/jupyter-icon.svg",
+      brandColor: "#F37626",
+      rating: 4,
+    },
+  ],
+};
 
 const Skills = () => {
-  const { theme, toggleIcon } = useTheme(); // ✅ Correctly invoking useTheme
+  const { theme } = useTheme();
+
+  const renderStars = (rating) => {
+    return Array.from({ length: 5 }, (_, index) => (
+      <span
+        key={index}
+        className={`${styles.star} ${index < rating ? styles.starFilled : styles.starEmpty}`}
+      >
+        ★
+      </span>
+    ));
+  };
 
   return (
     <section id="skills" className={styles.container}>
-      <h1 className={styles.title}>Skills</h1>
+      <motion.h1 
+        className={styles.title}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        Skills
+      </motion.h1>
+      
       <div className={styles.skillsContainer}>
-        {skillsData.map((section, index) => (
+        {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
           <motion.div
-            key={section.category}
-            className={styles.category}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.2 }}
+            key={category}
+            className={styles.categorySection}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: categoryIndex * 0.2 
+            }}
+            viewport={{ once: true, amount: 0.2 }}
           >
-            <h3 className={styles.categoryTitle}>{section.category}</h3>
-            <div className={styles.skillGrid}>
-              {section.skills.map((skill) => (
-                <div key={skill.name} className={styles.card}>
-                  <img
-                    src={theme === "light" ? skill.imageDark : skill.imageLight}
-                    alt={skill.name}
-                    className={styles.skillImage}
-                  />
-                  <h4 className={styles.skillTitle}>{skill.name}</h4>
-                  <p className={styles.skillDesc}>{skill.desc}</p>
-                </div>
+            <motion.h2 
+              className={styles.categoryTitle}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.6, 
+                ease: "easeOut",
+                delay: categoryIndex * 0.2 + 0.3 
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              {category}
+            </motion.h2>
+            
+            <div className={styles.skillsGrid}>
+              {skills.map((skill, skillIndex) => (
+                <motion.div
+                  key={skill.name}
+                  className={styles.skillWrapper}
+                  initial={{ 
+                    opacity: 0, 
+                    scale: 0.8,
+                    y: 50 
+                  }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    y: 0 
+                  }}
+                  transition={{ 
+                    duration: 0.5, 
+                    ease: "easeOut",
+                    delay: categoryIndex * 0.2 + skillIndex * 0.1 + 0.5
+                  }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                  style={{
+                    '--brand-color': skill.brandColor
+                  }}
+                >
+                  <div className={styles.skillItem}>
+                    <div className={styles.skillIcon}>
+                      <img
+                        src={theme === "light" ? skill.imageDark : skill.imageLight}
+                        alt={skill.name}
+                        className={styles.skillImage}
+                      />
+                    </div>
+                    <div className={styles.categoryBadge}>
+                      <div className={styles.starRating}>
+                        {renderStars(skill.rating)}
+                      </div>
+                    </div>
+                  </div>
+                  <span className={styles.skillLabel}>
+                    {skill.name}
+                  </span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
