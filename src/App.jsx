@@ -7,10 +7,12 @@ import Hero from "./sections/Hero/Hero";
 import NavBar from "./sections/NavBar/NavBar";
 import Projects from "./sections/Projects/Projects";
 import Skills from "./sections/Skills/Skills";
+import FloatingParticles from "./components/FloatingParticles/FloatingParticles";
 
 function App() {
   return (
     <>
+      <FloatingParticles />
       <NavBar />
       <Hero />
       <Education />

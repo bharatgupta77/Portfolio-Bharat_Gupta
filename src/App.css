@@ -13,14 +13,33 @@
   --card-hover-bg: rgba(255, 255, 255, 0.001);
 
   /* skill container */
-  --skills-container-bg: #ffffff; /* White container */
-  --skills-container-border: rgba(0, 0, 0, 0.1);
-  --skills-card-bg: #f9f9f9; /* Light skill card */
-  --skills-card-border: rgba(0, 0, 0, 0.08);
-  --skills-category-text-color: #222;
-  --skills-title-text-color: #222;
+  --skills-bg: transparent;
+  --skills-title-color: #222;
+  --skills-category-color: #222;
+  --skills-item-bg: rgba(248, 250, 252, 0.8);
+  --skills-item-border: #e2e8f0;
+  --skills-item-hover-bg: rgba(241, 245, 249, 0.9);
+  --skills-item-hover-border: #cbd5e1;
+  --skills-icon-bg: rgba(248, 250, 252, 0.6);
+  --skills-icon-border: #e2e8f0;
+  --skills-icon-hover-bg: rgba(241, 245, 249, 0.8);
+  --skills-icon-hover-border: #94a3b8;
+  --skills-label-hover-color: #222;
+  --brand-color: transparent;
 
-  --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
+  /* Floating Particles */
+  --particle-color: rgba(34, 34, 34, 0.6);
+  --particle-opacity: 0.8;
+  
+  /* Colorful particle options for light theme */
+  --particle-color-1: rgba(59, 130, 246, 0.7);   /* Blue */
+  --particle-color-2: rgba(16, 185, 129, 0.7);   /* Green */
+  --particle-color-3: rgba(245, 158, 11, 0.7);   /* Yellow */
+  --particle-color-4: rgba(239, 68, 68, 0.7);    /* Red */
+  --particle-color-5: rgba(139, 92, 246, 0.7);   /* Purple */
+  --particle-color-6: rgba(236, 72, 153, 0.7);   /* Pink */
+  --particle-color-7: rgba(6, 182, 212, 0.7);    /* Cyan */
+  --particle-color-8: rgba(34, 197, 94, 0.7);    /* Emerald */
 
   --navbarList-text-color: #222;
   --navbar-background: #fff;
@@ -67,15 +86,22 @@
   --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.3);
 
   /* skill container */
-  --skills-container-bg: #292727; /* Dark container */
-  --skills-container-border: rgba(255, 255, 255, 0.15);
-  --skills-card-bg: #fff; /* Dark skill card */
-  --skills-text-color: #222;
-  --skills-category-text-color: #fff;
-  --skills-title-text-color: #fff;
-  --skills-card-border: rgba(255, 255, 255, 0.1);
+  --skills-bg: transparent;
+  --skills-title-color: #fff;
+  --skills-category-color: #fff;
+  --skills-item-bg: rgba(255, 255, 255, 0.03);
+  --skills-item-border: rgba(255, 255, 255, 0.1);
+  --skills-item-hover-bg: rgba(255, 255, 255, 0.08);
+  --skills-item-hover-border: rgba(255, 255, 255, 0.3);
+  --skills-icon-bg: rgba(255, 255, 255, 0.05);
+  --skills-icon-border: rgba(255, 255, 255, 0.1);
+  --skills-icon-hover-bg: rgba(255, 255, 255, 0.1);
+  --skills-icon-hover-border: rgba(255, 255, 255, 0.3);
+  --skills-label-hover-color: #fff;
 
-  --skills-card-hover-bg: rgba(255, 255, 255, 0.001);
+  /* Floating Particles */
+  --particle-color: rgba(255, 255, 255, 0.6);
+  --particle-opacity: 0.8;
 
   --burger-bar-text-color: #fff;
 
@@ -87,7 +113,7 @@
 
   --education-bg-color: #292727;
   --education-text-color: #fff;
-  --education-headingText-color: #fff;
+  --education-text-color-heading: #fff;
 
   --contact-card-bg: #292727;
   --contact-border-color: rgba(255, 255, 255, 0.01);
@@ -110,15 +136,24 @@ body {
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0;
   overflow-x: hidden;
-  width: 98%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #root {
   display: flex;
   flex-direction: column;
   gap: 60px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h1,
