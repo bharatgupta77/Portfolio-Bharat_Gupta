@@ -16,7 +16,7 @@ import leetcodeIconLight from "../../assets/leetcode_light.svg";
 import hackerrankIconLight from "../../assets/hackerrank_dark.svg";
 import hackerrankIconDark from "../../assets/hackerrank_light.svg";
 
-import CV from "../../assets/Bharat_Gupta_Resume_updated.pdf";
+import CV from "../../assets/Bharat_Gupta_Resume.pdf";
 import { useTheme } from "../../common/ThemeContext";
 import sun from "../../assets/sun.svg";
 import moon from "../../assets/moon.svg";
