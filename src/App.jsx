@@ -7,7 +7,7 @@ import Hero from "./sections/Hero/Hero";
 import NavBar from "./sections/NavBar/NavBar";
 import Projects from "./sections/Projects/Projects";
 import Skills from "./sections/Skills/Skills";
-import FloatingParticles from "./components/FloatingParticles/FloatingParticles";
+import FloatingParticles from "./components/FloatingParticles/FloatingParticles.jsx";
 
 function App() {
   return (

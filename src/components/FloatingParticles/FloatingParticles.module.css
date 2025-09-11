@@ -1,0 +1,145 @@
+.particlesContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: var(--particle-color);
+  opacity: var(--particle-opacity);
+  will-change: transform;
+}
+
+/* Particle shape */
+.particleCircle {
+  border-radius: 50%;
+}
+
+/* Parallax layers */
+.layerBack {
+  z-index: -3;
+}
+
+.layerMid {
+  z-index: -2;
+}
+
+.layerFront {
+  z-index: -1;
+}
+
+/* Different movement animations */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity);
+  }
+  90% {
+    opacity: var(--particle-opacity);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(var(--drift));
+    opacity: 0;
+  }
+}
+
+@keyframes spiralUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity);
+  }
+  90% {
+    opacity: var(--particle-opacity);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(var(--drift)) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes zigzagUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity);
+  }
+  25% {
+    transform: translateY(-25vh) translateX(20px);
+  }
+  50% {
+    transform: translateY(-50vh) translateX(-20px);
+  }
+  75% {
+    transform: translateY(-75vh) translateX(20px);
+  }
+  90% {
+    opacity: var(--particle-opacity);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(var(--drift));
+    opacity: 0;
+  }
+}
+
+@keyframes waveUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity);
+  }
+  90% {
+    opacity: var(--particle-opacity);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(calc(var(--drift) + 30px * sin(var(--wave-progress, 0))));
+    opacity: 0;
+  }
+}
+
+/* Animation classes */
+.animationFloatUp {
+  animation: floatUp infinite linear;
+}
+
+.animationSpiralUp {
+  animation: spiralUp infinite linear;
+}
+
+.animationZigzagUp {
+  animation: zigzagUp infinite linear;
+}
+
+.animationWaveUp {
+  animation: waveUp infinite ease-in-out;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation-duration: 60s !important;
+    opacity: calc(var(--particle-opacity) * 0.3);
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .particlesContainer {
+    /* Temporarily enabled for testing */
+  }
+}
