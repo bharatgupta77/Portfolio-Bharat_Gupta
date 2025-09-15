@@ -5,6 +5,11 @@
   position: relative;
 }
 
+.container:hover {
+  background: var(--card-hover-bg);
+  box-shadow: var(--card-hover-shadow);
+}
+
 .heading {
   text-align: center;
   margin-bottom: 48px;
@@ -72,6 +77,7 @@
 .details:hover {
   transform: translateY(-5px);
   box-shadow: var(--experience-card-hover-shadow);
+  background: var(--card-hover-bg);
 }
 
 .logoContainer {
