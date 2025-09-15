@@ -15,6 +15,7 @@ function Projects() {
           link="https://github.com/bharatgupta77/XBoard"
           h3="XBoard"
           p="A Dynamic News Feed Experience"
+          tags={["JavaScript", "HTML", "CSS", "APIs"]}
         />
 
         <ProjectCard
@@ -24,6 +25,7 @@ function Projects() {
           p="Collection of everyday code snippets—"
           p2="barcodes, OTPs, email-slicer, and more."
           needsBreak={true}
+          tags={["Python", "Utilities", "Automation"]}
         />
         <ProjectCard
           src={budgetify}
@@ -32,6 +34,7 @@ function Projects() {
           p="A personal finance management website"
           p2="Helps users track incomes, expenses and financial habits"
           needsBreak={true}
+          tags={["React", "Node.js", "MongoDB", "Finance"]}
         />
       </div>
     </section>

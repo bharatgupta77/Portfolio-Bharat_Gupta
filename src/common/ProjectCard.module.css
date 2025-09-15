@@ -1,13 +1,20 @@
 .card {
-  width: 20% !important;
+  width: 30% !important;
+  min-height: 450px;
   background: var(--card-bg);
   border-radius: 16px;
-  border: 2px solid var(--card-border); /* ✅ Light in light mode, dark in dark mode */
+  border: 2px solid var(--card-border);
   box-shadow: var(--card-shadow);
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
     border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* 📱 Full width on smaller screens */
@@ -34,8 +41,8 @@
   .card:hover {
     background: var(--card-hover-bg);
     border: 2px solid var(--card-hover-border);
-    box-shadow: var(--card-hover-shadow);
-    transform: translateY(-10px);
+    box-shadow: var(--card-hover-shadow), 0 0 30px rgba(59, 130, 246, 0.3);
+    transform: translateY(-10px) scale(1.05);
   }
 }
 
@@ -58,4 +65,100 @@
   font-size: 0.95rem;
   color: var(--text-color);
   line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 1rem;
+}
+
+/* Description Container */
+.description {
+  flex-grow: 1;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+/* GitHub Info Section */
+.githubInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: rgba(100, 100, 100, 0.05);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.githubInfo:hover {
+  opacity: 1;
+  background: rgba(100, 100, 100, 0.1);
+}
+
+.githubIcon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+[data-theme="dark"] .githubInfo {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .githubInfo:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tags Container */
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  justify-content: center;
+}
+
+/* Individual Tags */
+.tag {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1e40af;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Dark theme tags */
+[data-theme="dark"] .tag {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="dark"] .tag:hover {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: var(--card-shadow);
+  }
+  50% {
+    box-shadow: var(--card-shadow), 0 0 20px rgba(59, 130, 246, 0.2);
+  }
 }
