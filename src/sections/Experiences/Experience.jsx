@@ -58,7 +58,7 @@ const experienceData = [
     ],
     keySkills: ["Web Development", "JavaScript", "Bootstrap", "Python", "SQL"],
     awards: "Best UI/UX Design Award",
-    brandColors: ["#2196F3", "#FFC107"], // Blue and Amber
+    brandColors: ["#FFC107", "#2196F3"], // Blue and Amber
   },
   {
     id: 4,
@@ -76,11 +76,11 @@ const experienceData = [
     ],
     keySkills: ["Machine Learning", "Python", "Deep Learning", "PyTorch", "Data Analytics"],
     awards: "Team Excellence Award",
-    brandColors: ["#0066CC", "#FF6600"], // Persistent Blue and Orange
+    brandColors: ["#FFFFFF", "#FF6600"], // Persistent Blue and Orange
   },
 ];
 
-const segmentColors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
+const segmentColors = ["#3b82f6", "#FFFFFF", "#DB0011", "#FF6600", "#8b5cf6"];
 
 const ExperienceTimeline = () => {
   const [isMobile, setIsMobile] = useState(false);
