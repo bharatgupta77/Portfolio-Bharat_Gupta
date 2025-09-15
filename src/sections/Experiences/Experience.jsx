@@ -143,9 +143,15 @@ const ExperienceTimeline = () => {
             >
               <div className={styles.durationCard}>
                 <div className={styles.durationValue}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className={styles.durationIcon}>
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
+                  {(exp.duration?.includes('Present') || exp.durationYears?.includes('Current')) && isMobile ? (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className={`${styles.durationIcon} ${styles.loadingIcon}`}>
+                      <path d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"/>
+                    </svg>
+                  ) : (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className={styles.durationIcon}>
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  )}
                   <span className={styles.durationText}>{exp.duration}</span>
                 </div>
               </div>

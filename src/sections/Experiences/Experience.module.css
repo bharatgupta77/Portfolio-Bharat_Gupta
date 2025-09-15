@@ -54,10 +54,10 @@
 }
 
 .details {
-  background: #ffffff;
+  background: var(--experience-card-bg);
   padding: 28px;
   border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--experience-card-shadow);
   width: 60%;
   position: relative;
   z-index: 1;
@@ -71,18 +71,18 @@
 
 .details:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--experience-card-hover-shadow);
 }
 
 .logoContainer {
   width: 35%;
-  background-color: #ffffff;
+  background-color: var(--experience-logo-bg);
   display: flex;
   margin: 0 auto;
   margin-bottom: 16px;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--experience-logo-shadow);
 }
 
 .companyLogo {
@@ -110,13 +110,13 @@
   text-align: center;
   align-self: center;
   width: 100%;
-  color: #222;
+  color: var(--experience-company-text);
 }
 
 .jobTitle {
   font-size: 18px;
   font-weight: bold;
-  color: #222;
+  color: var(--experience-job-title-text);
   margin-bottom: 18px;
   text-align: left;
   display: flex;
@@ -129,13 +129,13 @@
   justify-content: space-between;
   margin-bottom: 18px;
   font-size: 14px;
-  color: #4b5563;
+  color: var(--experience-duration-text);
   width: 100%;
 }
 
 .duration {
   font-size: 14px;
-  color: #4b5563;
+  color: var(--experience-duration-text);
   display: flex;
   align-items: center;
 }
@@ -153,7 +153,7 @@
 
 .description {
   font-size: 14px;
-  color: #374151;
+  color: var(--experience-description-text);
   margin-bottom: 18px;
   line-height: 1.6;
   text-align: left;
@@ -194,7 +194,7 @@
 
 .awards {
   font-size: 14px;
-  color: #374151;
+  color: var(--experience-awards-text);
   margin-bottom: 8px;
   line-height: 1.6;
   text-align: left;
@@ -212,7 +212,7 @@
   align-items: center;
   margin-bottom: 12px;
   font-size: 14px;
-  color: #374151;
+  color: var(--experience-skills-text);
 }
 
 .skillsTags {
@@ -223,20 +223,20 @@
 }
 
 .skillTag {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(167, 139, 250, 0.1));
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: var(--experience-skill-bg);
+  border: 1px solid var(--experience-skill-border);
   border-radius: 16px;
   padding: 6px 12px;
   font-size: 0.8rem;
-  color: #374151;
+  color: var(--experience-skill-text);
   font-weight: 600;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .skillTag:hover {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(167, 139, 250, 0.2));
-  border-color: rgba(99, 102, 241, 0.4);
+  background: var(--experience-skill-hover-bg);
+  border-color: var(--experience-skill-hover-border);
   transform: translateY(-1px);
 }
 
@@ -250,7 +250,7 @@
   align-items: center;
   margin-bottom: 12px;
   font-size: 14px;
-  color: #374151;
+  color: var(--experience-skills-text);
 }
 
 .techStack {
@@ -260,8 +260,8 @@
 }
 
 .techBadge {
-  background-color: #e0f2fe;
-  color: #0369a1;
+  background-color: var(--experience-tech-bg);
+  color: var(--experience-tech-text);
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 0.75rem;
@@ -271,7 +271,7 @@
 }
 
 .techBadge:hover {
-  background-color: #bae6fd;
+  background-color: var(--experience-tech-hover-bg);
   transform: translateY(-1px);
 }
 
@@ -281,10 +281,10 @@
   transform: translateX(-50%);
   width: 14px;
   height: 14px;
-  background: #3b82f6;
+  background: var(--experience-point-bg);
   border-radius: 50%;
   z-index: 3;
-  border: 3px solid white;
+  border: 3px solid var(--experience-point-border);
   top: calc(50% - 7px);
 }
 
@@ -390,81 +390,14 @@
   }
 }
 
-/* Dark Theme Support */
-[data-theme="dark"] .details {
-  background: #292727;
-  color: #ffffff;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .details:hover {
-    background: var(--card-hover-bg);
-    box-shadow: var(--card-hover-shadow);
-}
-
-[data-theme="dark"] .logoContainer {
-  background-color: #2a2a2a;
-}
-
-[data-theme="dark"] .companyName {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .jobTitle {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .duration {
-  color: #b3b3b3;
-}
-
-[data-theme="dark"] .description {
-  color: #cccccc;
-}
-
-[data-theme="dark"] .skillsHeader,
-[data-theme="dark"] .techHeader {
-  color: #cccccc;
-}
-
-[data-theme="dark"] .skillTag {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(167, 139, 250, 0.2));
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  color: #ffffff;
-}
-
-[data-theme="dark"] .skillTag:hover {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(167, 139, 250, 0.3));
-  border-color: rgba(99, 102, 241, 0.5);
-}
-
-[data-theme="dark"] .techBadge {
-  background-color: #2a3f5f;
-  color: #87ceeb;
-}
-
-[data-theme="dark"] .techBadge:hover {
-  background-color: #3a4f6f;
-}
-
-[data-theme="dark"] .awards {
-  color: #cccccc;
-}
-
-[data-theme="dark"] .point {
-  background: #3b82f6;
-  border-color: #1a1a1a;
-}
-
-
 /* Duration Display Between Cards */
 .durationDisplay {
   display: none;
 }
 
 .durationCard {
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid #e5e7eb;
+  background: var(--experience-duration-card-bg);
+  border: 2px solid var(--experience-duration-border);
   border-left: 6px solid #4f46e5;
   border-radius: 16px;
   padding: 18px 32px;
@@ -508,7 +441,7 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #6b7280;
+  color: var(--experience-duration-label-text);
   text-transform: uppercase;
   margin-bottom: 4px;
   animation: labelPulse 2s ease-in-out infinite;
@@ -519,7 +452,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #1f2937;
+  color: var(--experience-duration-value-text);
 }
 
 .durationIcon {
@@ -528,49 +461,26 @@
   filter: drop-shadow(0 1px 2px rgba(79, 70, 229, 0.3));
 }
 
+.loadingIcon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .durationText {
   font-size: 18px;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--experience-duration-value-text);
   letter-spacing: 0.5px;
 }
 
-/* Dark theme duration */
-[data-theme="dark"] .durationCard {
-  background: rgba(31, 41, 55, 0.95);
-  border-color: #374151;
-  border-left-color: #8b5cf6;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .durationCard {
-  animation: cardGlowDark 3s ease-in-out infinite;
-}
-
-@keyframes cardGlowDark {
-  0%, 100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
-  50% { box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25), 0 0 20px rgba(139, 92, 246, 0.15); }
-}
-
-[data-theme="dark"] .durationCard::before {
-  background: linear-gradient(90deg, #8b5cf6, #a855f7, #8b5cf6);
-}
-
-[data-theme="dark"] .durationLabel {
-  color: #9ca3af;
-}
-
-[data-theme="dark"] .durationValue {
-  color: #f9fafb;
-}
-
-[data-theme="dark"] .durationIcon {
-  color: #8b5cf6;
-}
-
-[data-theme="dark"] .durationText {
-  color: #f9fafb;
-}
 
 /* Mobile responsive duration */
 @media (max-width: 768px) {
