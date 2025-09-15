@@ -249,11 +249,50 @@
   }
 }
 
+/* Mobile hero animation - image appears in center, then moves to top below navbar */
+@keyframes mobileHeroSlideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-180px);
+  }
+}
+
+@keyframes mobileTextFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileContentStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 :global(.cursor-pulse) {
   animation: pulse 1.5s infinite;
 }
 
-@media (width >= 800px) {
+/* Large screen media query */
+@media (min-width: 1426px) {
   .container {
     flex-direction: column;
     align-items: center;
@@ -263,30 +302,11 @@
   }
 
   .hero {
+    max-width: 300px;
     width: 300px;
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-  }
-
-  .description {
-    max-width: 50vw;
-  }
-
-  .typingText {
-    font-size: 28px;
-  }
-}
-
-@media (width >= 1400px) {
-  .container {
-    height: 100vh;
-    min-height: 100vh;
-  }
-
-  .hero {
-    max-width: 300px;
-    width: 300px;
     margin-top: -50px;
   }
 
@@ -299,7 +319,8 @@
   }
 }
 
-@media (max-width: 1425px) {
+/* Medium screen media query */
+@media (max-width: 1425px) and (min-width: 801px) {
   .container {
     height: 100vh;
     min-height: 100vh;
@@ -307,6 +328,13 @@
     align-items: center;
     justify-content: center;
     padding-top: 20px;
+  }
+
+  .hero {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .colorModeContainer {
@@ -343,12 +371,192 @@
     width: 100% !important;
   }
 
+  .description {
+    max-width: 50vw;
+  }
+
+  .typingText {
+    font-size: 28px;
+  }
+
   .resumeButton {
     position: static !important;
     top: auto !important;
     right: auto !important;
     margin-top: 30px;
     align-self: center;
+  }
+
+  .scrollIndicator {
+    position: absolute;
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+    margin: 0;
+    transform: none;
+  }
+
+  .scrollIndicator:hover {
+    transform: scale(1.1);
+  }
+
+  .scrollIndicator:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Small screen/mobile media query */
+@media (max-width: 800px) {
+  .container {
+    height: 100vh;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    gap: 12px;
+  }
+
+  .hero {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .container span {
+    gap: 12px;
+    animation: mobileContentStagger 0.8s ease-out forwards;
+    animation-delay: 2.2s;
+    opacity: 0;
+  }
+
+  .container span a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .container span a img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .img_light {
+    width: 20px;
+    height: 20px;
+  }
+
+  .img_dark {
+    width: 20px;
+    height: 20px;
+  }
+
+  .colorModeContainer {
+    position: static;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: mobileContentStagger 0.8s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+
+  .colorMode {
+    width: 20px;
+  }
+
+  .textContainer {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 95%;
+    max-width: none;
+    height: auto;
+    padding: 0 12px;
+  }
+
+  .info {
+    min-height: auto;
+    gap: 10px;
+  }
+
+  .info h1,
+  .info h2,
+  .info span,
+  .info p {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+  }
+
+  .description {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    max-width: 95vw;
+    font-size: 12px !important;
+    line-height: 1.3;
+    animation: mobileTextFadeIn 0.8s ease-out forwards;
+    animation-delay: 2.8s;
+    opacity: 0;
+  }
+
+  .typingText {
+    font-size: 18px;
+    min-height: 1.4em;
+    animation: mobileTextFadeIn 0.8s ease-out forwards;
+    animation-delay: 2.4s;
+    opacity: 0;
+  }
+
+  .container button {
+    width: 80px;
+    height: 34px;
+    font-size: 14px;
+    border-radius: 12px;
+    animation: mobileContentStagger 0.8s ease-out forwards;
+    animation-delay: 3.2s;
+    opacity: 0;
+  }
+
+
+
+  .resumeButtonHorizontal {
+    padding: 10px 16px;
+    font-size: 11px;
+    gap: 6px;
+    border-radius: 20px;
+  }
+
+  .scrollIndicator {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: auto !important;
+    right: 12px !important;
+    margin: 0 !important;
+    transform: none !important;
+    gap: 3px !important;
+    width: auto !important;
+  }
+
+  .scrollArrow {
+    width: 26px;
+    height: 26px;
+  }
+
+  .scrollText {
+    font-size: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  .scrollIndicator:hover {
+    transform: scale(1.1);
+  }
+
+  .scrollIndicator:active {
+    transform: scale(0.95);
   }
 }
 
@@ -395,12 +603,12 @@
 
 .resumeButtonHorizontal {
   position: absolute;
-  top: 100px;
-  right: 20px;
+  top: 85px;
+  right: 5px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 24px;
+  gap: 2px;
+  padding: 12px 15px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   color: var(--text-color);
@@ -408,7 +616,7 @@
   border-radius: 30px;
   font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
@@ -451,7 +659,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
@@ -470,8 +678,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
@@ -498,7 +706,7 @@
 
 .scrollText {
   font-family: "Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace;
-  font-size: 11px;
+  font-size: 9px;
   color: var(--text-color);
   opacity: 0.7;
   text-transform: uppercase;
@@ -509,24 +717,4 @@
 
 .scrollIndicator:hover .scrollText {
   opacity: 1;
-}
-
-/* Responsive styles for scroll indicator */
-@media (max-width: 1425px) {
-  .scrollIndicator {
-    position: absolute;
-    bottom: 20px;
-    left: auto;
-    right: 20px;
-    margin: 0;
-    transform: none;
-  }
-
-  .scrollIndicator:hover {
-    transform: scale(1.1);
-  }
-
-  .scrollIndicator:active {
-    transform: scale(0.95);
-  }
 }
