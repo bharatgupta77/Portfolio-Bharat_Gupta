@@ -8,9 +8,11 @@
   --footer-text-color: #888;
 
   --card-bg: #ffffff; /* ✅ White cards */
+  --card-border: #e5e7eb;
   --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
   --card-hover-bg: rgba(255, 255, 255, 0.001);
+  --card-hover-border: rgba(255, 255, 255, 0.3);
 
   /* skill container */
   --skills-bg: transparent;
@@ -68,6 +70,33 @@
   /* Resume Button */
   --resume-btn-color: #222222;
   --resume-btn-text-color: white;
+
+  /* Experience Section */
+  --experience-card-bg: #ffffff;
+  --experience-card-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  --experience-card-hover-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  --experience-logo-bg: #ffffff;
+  --experience-logo-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --experience-company-text: #222;
+  --experience-job-title-text: #222;
+  --experience-duration-text: #4b5563;
+  --experience-description-text: #374151;
+  --experience-skills-text: #374151;
+  --experience-awards-text: #374151;
+  --experience-point-bg: #3b82f6;
+  --experience-point-border: white;
+  --experience-duration-card-bg: rgba(255, 255, 255, 0.95);
+  --experience-duration-border: #e5e7eb;
+  --experience-duration-label-text: #6b7280;
+  --experience-duration-value-text: #1f2937;
+  --experience-skill-bg: rgba(59, 130, 246, 0.2);
+  --experience-skill-border: rgba(59, 130, 246, 0.4);
+  --experience-skill-text: #1e40af;
+  --experience-skill-hover-bg: rgba(255, 255, 255, 0.001);
+  --experience-skill-hover-border: rgba(255, 255, 255, 0.6);
+  --experience-tech-bg: #bfdbfe;
+  --experience-tech-text: #1e40af;
+  --experience-tech-hover-bg: #93c5fd;
 }
 
 [data-theme="dark"] {
@@ -82,6 +111,7 @@
   --card-bg: #292727; /* ✅ Dark cards */
   --card-border: rgba(255, 255, 255, 0.01); /* ✅ Soft white border */
   --card-hover-bg: rgba(255, 255, 255, 0.001);
+  --card-hover-border: rgba(255, 255, 255, 0.3);
   --card-shadow: 0px 6px 18px rgba(0, 0, 0, 0.09);
   --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.3);
 
@@ -130,6 +160,33 @@
   /* Resume Button */
   --resume-btn-color: white;
   --resume-btn-text-color: #222222;
+
+  /* Experience Section */
+  --experience-card-bg: #292727;
+  --experience-card-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  --experience-card-hover-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  --experience-logo-bg: #2a2a2a;
+  --experience-logo-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --experience-company-text: #ffffff;
+  --experience-job-title-text: #ffffff;
+  --experience-duration-text: #b3b3b3;
+  --experience-description-text: #cccccc;
+  --experience-skills-text: #cccccc;
+  --experience-awards-text: #cccccc;
+  --experience-point-bg: #3b82f6;
+  --experience-point-border: #1a1a1a;
+  --experience-duration-card-bg: rgba(31, 41, 55, 0.95);
+  --experience-duration-border: #374151;
+  --experience-duration-label-text: #9ca3af;
+  --experience-duration-value-text: #f9fafb;
+  --experience-skill-bg: rgba(59, 130, 246, 0.3);
+  --experience-skill-border: rgba(59, 130, 246, 0.5);
+  --experience-skill-text: #bfdbfe;
+  --experience-skill-hover-bg: rgba(255, 255, 255, 0.001);
+  --experience-skill-hover-border: rgba(255, 255, 255, 0.7);
+  --experience-tech-bg: rgba(59, 130, 246, 0.25);
+  --experience-tech-text: #bfdbfe;
+  --experience-tech-hover-bg: rgba(59, 130, 246, 0.35);
 }
 
 body {
