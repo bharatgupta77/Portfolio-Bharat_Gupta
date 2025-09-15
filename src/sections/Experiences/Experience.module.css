@@ -43,12 +43,14 @@
 
 .entry:nth-child(odd) .details {
   align-self: flex-start;
-  margin-left: -30%;
+  margin-left: -25%;
+  margin-right: 5%;
 }
 
 .entry:nth-child(even) .details {
   align-self: flex-end;
-  margin-right: -30%;
+  margin-right: -25%;
+  margin-left: 5%;
 }
 
 .details {
@@ -288,35 +290,317 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .details {
-    width: 70%;
-    margin: 10px auto;
-    align-self: center !important;
+  .container {
+    width: 95%;
+    padding: 20px 10px;
   }
 
-  .container {
-    width: 80%;
-    margin: 0 auto;
+  .timeline {
+    align-items: stretch;
+  }
+
+  .entry {
+    display: block;
+    padding: 0 0 30px 0;
+    position: relative;
   }
 
   .entry:nth-child(odd) .details,
   .entry:nth-child(even) .details {
-    margin-left: 80px;
+    margin-left: 0;
     margin-right: 0;
+    align-self: stretch;
   }
 
-  .timeline::before {
+  .details {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .segment {
     display: none;
   }
 
   .point {
-    left: 12px;
-    transform: translateX(0);
-    top: calc(50% - 7px);
+    display: none;
   }
 
-  .segment {
-    left: 20px;
-    transform: translateX(0);
+  .logoContainer {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .companyLogo {
+    max-height: 34px;
+  }
+
+  .companyName {
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .jobTitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .durationContainer {
+    display: none;
+  }
+
+  .durationBadge {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+
+  .description {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .skillsContainer,
+  .techContainer {
+    margin: 12px 0;
+  }
+
+  .skillsTags,
+  .techStack {
+    gap: 6px;
+  }
+
+  .skillTag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .techBadge {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  .awards {
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .details {
+  background: #1a1a1a;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .details:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .logoContainer {
+  background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .companyName {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .jobTitle {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .duration {
+  color: #b3b3b3;
+}
+
+[data-theme="dark"] .description {
+  color: #cccccc;
+}
+
+[data-theme="dark"] .skillsHeader,
+[data-theme="dark"] .techHeader {
+  color: #cccccc;
+}
+
+[data-theme="dark"] .skillTag {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(167, 139, 250, 0.2));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .skillTag:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(167, 139, 250, 0.3));
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+[data-theme="dark"] .techBadge {
+  background-color: #2a3f5f;
+  color: #87ceeb;
+}
+
+[data-theme="dark"] .techBadge:hover {
+  background-color: #3a4f6f;
+}
+
+[data-theme="dark"] .awards {
+  color: #cccccc;
+}
+
+[data-theme="dark"] .point {
+  background: #3b82f6;
+  border-color: #1a1a1a;
+}
+
+
+/* Duration Display Between Cards */
+.durationDisplay {
+  display: none;
+}
+
+.durationCard {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #e5e7eb;
+  border-left: 6px solid #4f46e5;
+  border-radius: 16px;
+  padding: 18px 32px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  min-width: 320px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: cardGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.durationCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #4f46e5);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 12px 30px rgba(79, 70, 229, 0.15), 0 0 20px rgba(79, 70, 229, 0.1); }
+}
+
+@keyframes labelPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.durationLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  animation: labelPulse 2s ease-in-out infinite;
+}
+
+.durationValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #1f2937;
+}
+
+.durationIcon {
+  flex-shrink: 0;
+  color: #4f46e5;
+  filter: drop-shadow(0 1px 2px rgba(79, 70, 229, 0.3));
+}
+
+.durationText {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: 0.5px;
+}
+
+/* Dark theme duration */
+[data-theme="dark"] .durationCard {
+  background: rgba(31, 41, 55, 0.95);
+  border-color: #374151;
+  border-left-color: #8b5cf6;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .durationCard {
+  animation: cardGlowDark 3s ease-in-out infinite;
+}
+
+@keyframes cardGlowDark {
+  0%, 100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25), 0 0 20px rgba(139, 92, 246, 0.15); }
+}
+
+[data-theme="dark"] .durationCard::before {
+  background: linear-gradient(90deg, #8b5cf6, #a855f7, #8b5cf6);
+}
+
+[data-theme="dark"] .durationLabel {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .durationValue {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .durationIcon {
+  color: #8b5cf6;
+}
+
+[data-theme="dark"] .durationText {
+  color: #f9fafb;
+}
+
+/* Mobile responsive duration */
+@media (max-width: 768px) {
+  .durationDisplay {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    z-index: 10;
+  }
+  
+  .durationCard {
+    min-width: 240px;
+    padding: 14px 20px;
+  }
+  
+  .durationText {
+    font-size: 16px;
+  }
+  
+  .durationIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Dark theme mobile specific adjustments */
+@media (max-width: 768px) {
+  [data-theme="dark"] .details {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 }

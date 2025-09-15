@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import styles from "./Experience.module.css";
 import hsbc from "../../assets/hsbc_logo.png";
 import atechnos from "../../assets/atechnos_logo.jpeg";
@@ -82,9 +83,22 @@ const experienceData = [
 const segmentColors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
 const ExperienceTimeline = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div id="experience" className={styles.container}>
       <h1 className={styles.heading}>Experience</h1>
+      
       <div className={styles.timeline}>
         {experienceData.map((exp, index) => (
           <motion.div
@@ -92,9 +106,51 @@ const ExperienceTimeline = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            viewport={{ once: false }}
+            viewport={{ once: false, amount: 0.3 }}
             className={styles.entry}
           >
+            {/* Duration Display Above Card */}
+            <motion.div
+              className={styles.durationDisplay}
+              initial={{ 
+                opacity: 0, 
+                y: -40, 
+                rotateX: -90,
+                scale: 0.6,
+                rotateY: 15
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0, 
+                rotateX: 0,
+                scale: 1,
+                rotateY: 0
+              }}
+              transition={{ 
+                duration: 1, 
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.2,
+                type: "spring",
+                stiffness: 120,
+                damping: 15
+              }}
+              whileHover={{
+                scale: 1.05,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              <div className={styles.durationCard}>
+                <div className={styles.durationValue}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className={styles.durationIcon}>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span className={styles.durationText}>{exp.duration}</span>
+                </div>
+              </div>
+            </motion.div>
+
             <div
               className={styles.segment}
               style={{
