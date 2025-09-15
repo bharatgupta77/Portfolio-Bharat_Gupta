@@ -5,11 +5,6 @@
   position: relative;
 }
 
-.container:hover {
-  background: var(--card-hover-bg);
-  box-shadow: var(--card-hover-shadow);
-}
-
 .heading {
   text-align: center;
   margin-bottom: 48px;
