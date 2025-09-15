@@ -151,6 +151,38 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
+/* Medium screens - Smaller nav items to prevent overlap */
+@media (min-width: 768px) and (max-width: 1000px) {
+  .navItem {
+    margin: 0 1.2%;
+    font-size: 15px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .toggleSwitch {
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+  }
+
+  .toggleSlider {
+    width: 26px;
+    height: 26px;
+  }
+
+  .toggleSliderActive {
+    transform: translateX(30px);
+  }
+
+  .toggleIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 /* Responsive - Show Burger Menu */
 @media (max-width: 768px) {
   .burger {

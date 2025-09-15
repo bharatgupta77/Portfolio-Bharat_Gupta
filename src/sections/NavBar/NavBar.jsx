@@ -121,6 +121,12 @@ const NavBar = () => {
         </li>
         <li
           className={styles.navItem}
+          onClick={() => scrollToSection("certificates")}
+        >
+          Certificates
+        </li>
+        <li
+          className={styles.navItem}
           onClick={() => scrollToSection("contact")}
         >
           Contact
