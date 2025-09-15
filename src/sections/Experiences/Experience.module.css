@@ -392,13 +392,14 @@
 
 /* Dark Theme Support */
 [data-theme="dark"] .details {
-  background: #1a1a1a;
+  background: #292727;
   color: #ffffff;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .details:hover {
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    background: var(--card-hover-bg);
+    box-shadow: var(--card-hover-shadow);
 }
 
 [data-theme="dark"] .logoContainer {
@@ -600,7 +601,11 @@
 /* Dark theme mobile specific adjustments */
 @media (max-width: 768px) {
   [data-theme="dark"] .details {
-    background: #1a1a1a;
+    background: #292727;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  [data-theme="dark"] .details:hover {
+    background: var(--card-hover-bg);
+    box-shadow: var(--card-hover-shadow);
   }
 }
