@@ -1,0 +1,214 @@
+/* Planetary Animation System */
+.planetarySystem {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Central Star */
+.centralStar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ffdd44, #ff8800, #ff4400);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 20px #ffdd44,
+    0 0 40px #ff8800,
+    0 0 60px #ff4400;
+  animation: starPulse 4s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Orbit Rings */
+.orbit1, .orbit2, .orbit3, .orbit4, .orbit5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit1 {
+  width: 200px;
+  height: 200px;
+  animation: rotate 20s linear infinite;
+}
+
+.orbit2 {
+  width: 320px;
+  height: 320px;
+  animation: rotate 35s linear infinite;
+}
+
+.orbit3 {
+  width: 480px;
+  height: 480px;
+  animation: rotate 50s linear infinite;
+}
+
+.orbit4 {
+  width: 640px;
+  height: 640px;
+  animation: rotate 75s linear infinite;
+}
+
+.orbit5 {
+  width: 800px;
+  height: 800px;
+  animation: rotate 100s linear infinite;
+}
+
+/* Planets */
+.planet1, .planet2, .planet3, .planet4, .planet5 {
+  position: absolute;
+  border-radius: 50%;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Planet 1 - Mercury-like */
+.planet1 {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #c4c4c4, #8a8a8a);
+  box-shadow: 0 0 10px rgba(196, 196, 196, 0.5);
+}
+
+/* Planet 2 - Venus-like */
+.planet2 {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #ffb347, #ff8c00);
+  box-shadow: 0 0 12px rgba(255, 179, 71, 0.6);
+}
+
+/* Planet 3 - Earth-like */
+.planet3 {
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, #4a90e2, #2e5984, #1e3a5f);
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.7);
+  position: relative;
+}
+
+.planet3::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  background: #2d5016;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Planet 4 - Mars-like */
+.planet4 {
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #cd5c5c, #a0522d);
+  box-shadow: 0 0 12px rgba(205, 92, 92, 0.6);
+}
+
+/* Planet 5 - Jupiter-like */
+.planet5 {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, #d2691e, #b8860b, #8b4513);
+  box-shadow: 0 0 20px rgba(210, 105, 30, 0.8);
+  position: relative;
+}
+
+.planet5::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b4513, transparent);
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 
+      0 0 20px #ffdd44,
+      0 0 40px #ff8800,
+      0 0 60px #ff4400;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 
+      0 0 30px #ffdd44,
+      0 0 60px #ff8800,
+      0 0 90px #ff4400;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .centralStar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .orbit1 { width: 150px; height: 150px; }
+  .orbit2 { width: 240px; height: 240px; }
+  .orbit3 { width: 360px; height: 360px; }
+  .orbit4 { width: 480px; height: 480px; }
+  .orbit5 { width: 600px; height: 600px; }
+  
+  .planet1 { width: 8px; height: 8px; }
+  .planet2 { width: 10px; height: 10px; }
+  .planet3 { width: 12px; height: 12px; }
+  .planet4 { width: 10px; height: 10px; }
+  .planet5 { width: 20px; height: 20px; }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .orbit1,
+[data-theme="dark"] .orbit2,
+[data-theme="dark"] .orbit3,
+[data-theme="dark"] .orbit4,
+[data-theme="dark"] .orbit5 {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] .orbit1,
+[data-theme="light"] .orbit2,
+[data-theme="light"] .orbit3,
+[data-theme="light"] .orbit4,
+[data-theme="light"] .orbit5 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Hide on very small screens to avoid clutter */
+@media (max-width: 480px) {
+  .orbit4, .orbit5 {
+    display: none;
+  }
+}

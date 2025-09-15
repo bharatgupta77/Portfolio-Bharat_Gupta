@@ -7,11 +7,14 @@ import Hero from "./sections/Hero/Hero";
 import NavBar from "./sections/NavBar/NavBar";
 import Projects from "./sections/Projects/Projects";
 import Skills from "./sections/Skills/Skills";
+import Certificates from "./sections/Certificates/Certificates";
 import FloatingParticles from "./components/FloatingParticles/FloatingParticles.jsx";
+import PlanetaryAnimation from "./components/PlanetaryAnimation/PlanetaryAnimation.jsx";
 
 function App() {
   return (
     <>
+      {/* <PlanetaryAnimation /> */}
       <FloatingParticles />
       <NavBar />
       <Hero />
@@ -19,6 +22,7 @@ function App() {
       <Experience />
       <Projects />
       <Skills />
+      <Certificates />
       <Contact />
       <Footer />
     </>
