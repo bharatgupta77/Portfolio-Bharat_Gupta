@@ -64,68 +64,71 @@ function Hero() {
   const descriptionText = "Driven by a passion for crafting high-impact projects and committed to making meaningful, lasting contributions.";
   const quoteText = useTypewriter("\"Strive not to be a success, but rather to be of value\" - Albert Einstein", showQuoteTyping);
 
-  // Handle screen resize
+  // Handle screen resize with better mobile detection
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1425);
+      setIsMobile(window.innerWidth <= 900); // Better mobile breakpoint
     };
-    
+
     // Set initial value
     handleResize();
-    
+
     // Add event listener
     window.addEventListener('resize', handleResize);
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Handle the complete animation sequence
+  // Handle the complete animation sequence with mobile optimization
   useEffect(() => {
-    // Phase 1: Image appears slowly in center (2 seconds)
+    // Faster animations for mobile
+    const mobileMultiplier = isMobile ? 0.6 : 1;
+
+    // Phase 1: Image appears slowly in center
     const centeredTimer = setTimeout(() => {
       setImagePhase('centered');
-    }, 2000);
+    }, 1500 * mobileMultiplier);
 
-    // Phase 2: Image starts moving to right (after 1 second pause)
+    // Phase 2: Image starts moving to right (or stays centered on mobile)
     const movingTimer = setTimeout(() => {
       setImagePhase('movingRight');
-    }, 3000);
+    }, 2200 * mobileMultiplier);
 
     // Phase 3: Image reaches final position
     const positionedTimer = setTimeout(() => {
       setImagePhase('positioned');
-    }, 4500);
+    }, 3200 * mobileMultiplier);
 
     // Phase 4: Show text container after image is positioned
     const textTimer = setTimeout(() => {
       setShowTextContainer(true);
-    }, 5000);
+    }, 3500 * mobileMultiplier);
 
     // Phase 5: Start name typing
     const nameTimer = setTimeout(() => {
       setShowNameTyping(true);
-    }, 5500);
+    }, 3800 * mobileMultiplier);
 
     // Phase 6: Start role typing after name completes
     const roleTimer = setTimeout(() => {
       setShowRoleTyping(true);
-    }, 6800);
+    }, 4800 * mobileMultiplier);
 
     // Phase 7: Show social icons after role typing
     const socialTimer = setTimeout(() => {
       setShowSocialIcons(true);
-    }, 8200);
+    }, 6000 * mobileMultiplier);
 
     // Phase 8: Show description after social icons appear
     const descriptionTimer = setTimeout(() => {
       setShowDescription(true);
-    }, 8700);
+    }, 6300 * mobileMultiplier);
 
-    // Phase 9: Start quote typing after description appears (with some delay)
+    // Phase 9: Start quote typing after description appears
     const quoteTimer = setTimeout(() => {
       setShowQuoteTyping(true);
-    }, 10200); // Start after description is visible for 1.5 seconds
+    }, 7500 * mobileMultiplier);
 
     return () => {
       clearTimeout(centeredTimer);
@@ -138,7 +141,7 @@ function Hero() {
       clearTimeout(descriptionTimer);
       clearTimeout(quoteTimer);
     };
-  }, []);
+  }, [isMobile]);
 
   const themeIcon = theme === "light" ? sun : moon;
   const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
@@ -162,29 +165,37 @@ function Hero() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.div 
+      <motion.div
         className={styles.colorModeContainer}
-        initial={{ 
-          opacity: 0, 
+        initial={{
+          opacity: 0,
           scale: 0.3,
-          x: 0
+          x: 0,
+          y: 0
         }}
-        animate={{ 
+        animate={{
           opacity: imagePhase === 'appearing' ? 0 : 1,
-          scale: imagePhase === 'appearing' ? 0.3 : 
-                 imagePhase === 'centered' ? 1 : 
+          scale: imagePhase === 'appearing' ? 0.3 :
+                 imagePhase === 'centered' ? 1 :
                  imagePhase === 'movingRight' ? 0.9 : 1,
           x: imagePhase === 'appearing' ? 0 :
              imagePhase === 'centered' ? 0 :
-             isMobile ? 0 : '27vw' // Stay centered on mobile, move right on desktop
+             isMobile ? 0 : '27vw', // Stay centered on mobile, move right on desktop
+          y: isMobile ? (
+            imagePhase === 'appearing' ? 0 :
+            imagePhase === 'centred' ? 0 :
+            imagePhase === 'movingRight' ? 37.5 :
+            imagePhase === 'positioned' ? 75 : 0
+          ) : 0 // Gradual upward movement to final position
         }}
-        transition={{ 
+        transition={{
           opacity: { duration: 2.0, ease: "easeOut" },
-          scale: { 
-            duration: imagePhase === 'appearing' ? 2.0 : 0.8, 
-            ease: "easeOut" 
+          scale: {
+            duration: imagePhase === 'appearing' ? 2.0 : 0.8,
+            ease: "easeOut"
           },
-          x: { duration: 1.5, ease: "easeInOut" }
+          x: { duration: 1.5, ease: "easeInOut" },
+          y: { duration: 2.0, ease: "easeInOut" }
         }}
       >
         <img
@@ -196,44 +207,55 @@ function Hero() {
       </motion.div>
 
       {showTextContainer && (
-        <motion.div 
+        <motion.div
           className={styles.textContainer}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, x: isMobile ? 0 : -50, y: 0 }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            y: 0 // Keep text container stationary on all devices
+          }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+            y: { duration: 0.8, ease: "easeInOut" }
+          }}
         >
           <div className={styles.info}>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
-          animate={{ 
+          animate={{
             opacity: showNameTyping ? 1 : 0,
             y: showNameTyping ? 0 : 20
           }}
           transition={{ duration: 0.5 }}
-          style={{ 
+          style={{
             textAlign: 'center',
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
-            fontSize: '32px',
-            position: 'absolute',
-            top: '40px',
-            width: '100%'
+            fontSize: isMobile ? '24px' : '32px',
+            position: isMobile ? 'static' : 'absolute',
+            top: isMobile ? 'auto' : '40px',
+            width: '100%',
+            marginBottom: isMobile ? '10px' : '0'
           }}
         >
           {nameText}
         </motion.h1>
-        
-        <motion.h2 
+
+        <motion.h2
           className={styles.typingText}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ 
+          animate={{
             opacity: showRoleTyping ? 1 : 0,
             y: showRoleTyping ? 0 : 20
           }}
           transition={{ duration: 0.5 }}
           style={{
-            position: 'absolute',
-            top: '100px',
-            width: '100%'
+            position: isMobile ? 'static' : 'absolute',
+            top: isMobile ? 'auto' : '100px',
+            width: '100%',
+            fontSize: isMobile ? '16px' : '24px',
+            marginBottom: isMobile ? '20px' : '0'
           }}
         >
           {roleText}
@@ -243,18 +265,19 @@ function Hero() {
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: "backOut",
               staggerChildren: 0.05
             }}
             style={{
-              position: 'absolute',
-              top: '170px',
+              position: isMobile ? 'static' : 'absolute',
+              top: isMobile ? 'auto' : '170px',
               width: '100%',
               display: 'flex',
               justifyContent: 'center',
-              gap: '25px'
+              gap: isMobile ? '15px' : '25px',
+              marginBottom: isMobile ? '15px' : '0'
             }}
           >
             <motion.a 
@@ -300,23 +323,25 @@ function Hero() {
         )}
 
         {showDescription && (
-        <motion.p 
+        <motion.p
           className={styles.description}
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ 
+          transition={{
             duration: 0.8,
             ease: "easeOut",
             scale: { duration: 0.6, ease: "easeOut" }
           }}
-          style={{ 
+          style={{
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
-            fontSize: '14px',
+            fontSize: isMobile ? '12px' : '14px',
             lineHeight: '1.6',
-            position: 'absolute',
-            top: '260px',
+            position: isMobile ? 'static' : 'absolute',
+            top: isMobile ? 'auto' : '260px',
             width: '100%',
-            textAlign: 'center'
+            textAlign: 'center',
+            marginBottom: isMobile ? '15px' : '0',
+            padding: isMobile ? '0 10px' : '0'
           }}
         >
           {descriptionText}
@@ -325,27 +350,25 @@ function Hero() {
 
         {/* Einstein Quote - Inside text container for mobile */}
         {isMobile && showQuoteTyping && (
-        <motion.p 
+        <motion.p
           className={styles.quote}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
+          transition={{
             duration: 0.6,
             ease: "easeOut"
           }}
-          style={{ 
+          style={{
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
-            fontSize: '11px',
+            fontSize: '10px',
             lineHeight: '1.4',
-            position: 'absolute',
-            top: '400px',
+            position: 'static',
             width: '100%',
             textAlign: 'center',
             fontStyle: 'italic',
             opacity: 0.7,
             margin: 0,
-            padding: '0 20px',
-            color: 'var(--text-color)'
+            padding: '0 15px'
           }}
         >
           {quoteText}
