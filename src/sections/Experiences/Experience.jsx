@@ -29,14 +29,20 @@ const experienceData = [
     id: 2,
     logo: hsbc,
     company: "HSBC Software Development",
-    role: "Senior Software Engineer | Software Engineer | Trainee Software Engineer",
+    role: "Senior Software Engineer",
+    roleProgression: [
+      { title: "Senior Software Engineer", period: "Mar 2024 - Jul 2024" },
+      { title: "Software Engineer", period: "Mar 2022 - Mar 2024" },
+      { title: "Trainee Software Engineer", period: "Sep 2020 - Mar 2022" }
+    ],
     duration: "Sept 2020 - July 2024",
     durationYears: "3+ years",
     description: [
-      "Developed innovative solutions and optimized performance for the platform."
+      "Developed innovative solutions and optimized performance for the platform across multiple roles, demonstrating consistent growth and technical excellence.",
+      "Progressed through three distinct positions, showcasing adaptability and increasing responsibilities in software development and system optimization."
     ],
     techStack: [
-      "Android", "Kotlin", "Python", "Java", "HTML", "CSS", 
+      "Android", "Kotlin", "Python", "Java", "HTML", "CSS",
       "APIs", "Postman", "Splunk", "Figma", "UI/UX", "Mobile Development"
     ],
     keySkills: ["Android Development", "Kotlin", "Python", "API Integration", "UI/UX Design"],
@@ -51,12 +57,13 @@ const experienceData = [
     duration: "June 2020 - Aug 2020",
     durationYears: "3 months",
     description: [
-      "Built user-friendly interfaces and improved accessibility standards."
+      "Engineered a comprehensive real-time dashboard featuring API-driven data visualization charts using HTML, CSS, and JavaScript, resulting in a remarkable 50% enhancement in company data insights and operational decision-making capabilities.",
+      "Architected and developed robust REST APIs using Express.js framework integrated with Oracle SQL database, delivering a significant 15% improvement in dashboard functionality and data processing efficiency."
     ],
     techStack: [
-      "HTML", "CSS", "JavaScript", "Bootstrap", "jQuery", "AJAX", "SQL", "Python"
+      "HTML", "CSS", "JavaScript", "Express.js", "Oracle SQL", "REST APIs", "Bootstrap", "jQuery", "AJAX", "Python", "Real-time Data", "Chart Visualization"
     ],
-    keySkills: ["Web Development", "JavaScript", "Bootstrap", "Python", "SQL"],
+    keySkills: ["Web Development", "JavaScript", "REST API Development", "Express.js", "Oracle SQL", "Real-time Dashboard", "Data Visualization"],
     awards: "Best UI/UX Design Award",
     brandColors: ["#FFC107", "#2196F3"], // Blue and Amber
   },
@@ -194,6 +201,39 @@ const ExperienceTimeline = () => {
                     <path d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2V8c0-1.11.89-2 2-2h16z"/>
                   </svg>
                   <span>{exp.role}</span>
+                </div>
+              )}
+
+              {/* Role Progression */}
+              {exp.roleProgression && (
+                <div className={styles.roleProgression}>
+                  <div className={styles.progressionHeader}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '6px'}}>
+                      <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                    <strong>Career Progression:</strong>
+                  </div>
+                  <div className={styles.progressionList}>
+                    {exp.roleProgression.map((progression, idx) => (
+                      <motion.div
+                        key={idx}
+                        className={styles.progressionItem}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          ease: "easeOut",
+                          delay: (exp.roleProgression.length - 1 - idx) * 0.2 // Reverse order: trainee first
+                        }}
+                        viewport={{ once: false, amount: 0.1 }}
+                      >
+                        <div className={styles.progressionContent}>
+                          <div className={styles.progressionRole}>{progression.title}</div>
+                          <div className={styles.progressionPeriod}>{progression.period}</div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               )}
 

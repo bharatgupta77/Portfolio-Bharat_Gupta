@@ -203,6 +203,102 @@
   align-items: center;
 }
 
+/* Role Progression Styles */
+.roleProgression {
+  margin: 18px 0;
+  background: var(--card-hover-bg);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--experience-skill-border);
+}
+
+.progressionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--experience-skills-text);
+}
+
+.progressionList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Timeline Line */
+.progressionList::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, #8b5cf6, var(--experience-tech-bg));
+  border-radius: 1px;
+}
+
+.progressionItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  padding-left: 40px;
+  transition: all 0.2s ease;
+}
+
+.progressionItem::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  border: 2px solid var(--experience-card-bg);
+  box-shadow: 0 0 0 2px #8b5cf6;
+  transition: all 0.3s ease;
+}
+
+.progressionItem:hover::before {
+  transform: translateY(-50%) scale(1.3);
+  box-shadow: 0 0 0 3px #8b5cf6;
+}
+
+.progressionItem:hover {
+  transform: translateX(4px);
+}
+
+.progressionContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.progressionRole {
+  font-weight: 600;
+  color: var(--experience-skill-text);
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.progressionPeriod {
+  font-size: 11px;
+  background-color: var(--experience-tech-bg);
+  color: var(--experience-tech-text);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 /* Skills Container */
 .skillsContainer {
   margin: 18px 0;
@@ -388,6 +484,53 @@
   .awards {
     font-size: 13px;
     margin-bottom: 0;
+  }
+
+  /* Role Progression Mobile Styles */
+  .roleProgression {
+    margin: 12px 0;
+    padding: 12px;
+    width: 95%;
+    max-width: none;
+  }
+
+  .progressionList {
+    gap: 12px;
+  }
+
+  .progressionList::before {
+    left: 8px;
+    top: 24px;
+    bottom: 24px;
+  }
+
+  .progressionItem {
+    padding: 8px 0;
+    padding-left: 28px;
+  }
+
+  .progressionItem::before {
+    left: 4px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .progressionContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .progressionRole {
+    font-size: 12px;
+    min-width: auto;
+    margin-bottom: 2px;
+  }
+
+  .progressionPeriod {
+    font-size: 10px;
+    padding: 2px 6px;
+    align-self: flex-start;
   }
 }
 
