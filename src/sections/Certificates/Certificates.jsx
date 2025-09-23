@@ -11,7 +11,7 @@ function Certificates() {
       credentialId: "9bc7e1c1bdd84aaeb909f75e2f038c84",
       credentialUrl: "https://aws.amazon.com/verification",
       validUntil: "May 8, 2028",
-      image: "/src/assets/AWS_Badge.png",
+      image: "/src/assets/aws_badge.png",
       skills: ["AWS", "Cloud Architecture", "EC2", "S3", "VPC", "IAM"]
     }
   ];
