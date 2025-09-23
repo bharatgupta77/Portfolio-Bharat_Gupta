@@ -16,13 +16,12 @@ const experienceData = [
     durationYears: "Current",
     description: [
       "Designed and built key features for Copart.com using Angular, TypeScript, HTML, CSS, and JavaScript, delivering responsive and accessible UI components for members across multiple platform modules.",
-      "Converted Figma designs into scalable, reusable Angular components with pixel-perfect precision, cutting UI development time by 25% and ensuring consistent design delivery across 12+ frontend modules.",
-      "Improved component performance and load times using lazy loading and Angular best practices on high-traffic pages."
+      "Converted Figma designs into scalable, reusable Angular components with pixel-perfect precision."
     ],
     techStack: [
-      "Angular", "TypeScript", "HTML", "CSS", "JavaScript", "Figma", "UI/UX", "Lazy Loading", "Component Design"
+      "Angular", "TypeScript", "HTML", "CSS", "JavaScript", "Figma", "UI/UX", "SQL", "SOLR", "ALGOLIA"
     ],
-    keySkills: ["Angular", "TypeScript", "UI/UX Design", "Component Architecture", "Performance Optimization"],
+    keySkills: ["Angular", "TypeScript", "UI/UX Design", "Component Architecture"],
     brandColors: ["#1E40AF", "#3B82F6"], // Blue theme for Copart
   },
   {
@@ -39,11 +38,13 @@ const experienceData = [
     durationYears: "3+ years",
     description: [
       "Developed innovative solutions and optimized performance for the platform across multiple roles, demonstrating consistent growth and technical excellence.",
-      "Progressed through three distinct positions, showcasing adaptability and increasing responsibilities in software development and system optimization."
+      "Progressed through three distinct positions, showcasing adaptability and increasing responsibilities in software development and system optimization.",
+      "Optimized app performance by fixing memory leaks and adding test automation suite, cutting crashes by 90%.",
+      "Collaborated cross-functionally with design, copywriting and agile teams, leveraging organizational skills and project plans to streamline UI/UX enhancements and ensure timely feature delivery.",
     ],
     techStack: [
       "Android", "Kotlin", "Python", "Java", "HTML", "CSS",
-      "APIs", "Postman", "Splunk", "Figma", "UI/UX", "Mobile Development"
+      "APIs", "Postman", "Splunk", "Figma", "UI/UX", "Mobile Development", "Firebase"
     ],
     keySkills: ["Android Development", "Kotlin", "Python", "API Integration", "UI/UX Design"],
     awards: "Star Performer X 1, Pat on the Back X 3",
