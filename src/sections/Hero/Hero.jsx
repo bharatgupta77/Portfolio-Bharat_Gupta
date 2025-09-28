@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./HeroStyles.module.css";
 import heroImg from "../../assets/bharat_gupta.jpeg";
 import heroImgDark from "../../assets/Bharat_Gupta_Dark.png";
-import themeIcon from "../../assets/sun.svg";
 import linkedinLight from "../../assets/linkedin-light.svg";
 import linkedinDark from "../../assets/linkedin-dark.svg";
 
@@ -18,11 +17,26 @@ import hackerrankIconDark from "../../assets/hackerrank_light.svg";
 
 import CV from "../../assets/Bharat_Gupta_Resume.pdf";
 import { useTheme } from "../../common/ThemeContext";
-import sun from "../../assets/sun.svg";
-import moon from "../../assets/moon.svg";
 
-// Simple typewriter hook
-const useTypewriter = (text, shouldStart = false) => {
+// Hook to detect user motion preferences
+const useReducedMotion = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  return prefersReducedMotion;
+};
+
+// Simple typewriter hook with reduced motion support
+const useTypewriter = (text, shouldStart = false, prefersReducedMotion = false) => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -33,6 +47,13 @@ const useTypewriter = (text, shouldStart = false) => {
       return;
     }
 
+    // If user prefers reduced motion, show full text immediately
+    if (prefersReducedMotion) {
+      setDisplayedText(text);
+      setCurrentIndex(text.length);
+      return;
+    }
+
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
         setDisplayedText(prev => prev + text[currentIndex]);
@@ -40,110 +61,66 @@ const useTypewriter = (text, shouldStart = false) => {
       }, 70);
       return () => clearTimeout(timeout);
     }
-  }, [shouldStart, currentIndex, text]);
+  }, [shouldStart, currentIndex, text, prefersReducedMotion]);
 
-  return displayedText + (currentIndex < text.length ? '|' : '');
+  return displayedText + (currentIndex < text.length && !prefersReducedMotion ? '|' : '');
 };
 
 function Hero() {
-  const { theme, toggleTheme } = useTheme();
-  const [imagePhase, setImagePhase] = useState('appearing'); // 'appearing', 'centered', 'movingRight', 'positioned'
-  const [showTextContainer, setShowTextContainer] = useState(false);
-  const [showSocialIcons, setShowSocialIcons] = useState(false);
+  const { theme } = useTheme();
+  const prefersReducedMotion = useReducedMotion();
+  const [imagePhase, setImagePhase] = useState('appearing'); // 'appearing', 'centered', 'positioned'
   const [isMobile, setIsMobile] = useState(false);
 
-  // Typing animations with proper sequencing
-  const [showNameTyping, setShowNameTyping] = useState(false);
-  const [showRoleTyping, setShowRoleTyping] = useState(false);
-  const [showDescription, setShowDescription] = useState(false);
-  const [showQuoteTyping, setShowQuoteTyping] = useState(false);
-  
-  // Simple typewriter calls
-  const nameText = useTypewriter("Bharat Gupta", showNameTyping);
-  const roleText = useTypewriter("Software Developer", showRoleTyping);
+  // Simplified animation states
+  const [showContent, setShowContent] = useState(false);
+
+  // Simple typewriter calls with reduced motion support
+  const nameText = useTypewriter("Bharat Gupta", showContent, prefersReducedMotion);
+  const roleText = useTypewriter("Software Developer", showContent, prefersReducedMotion);
   const descriptionText = "Driven by a passion for crafting high-impact projects and committed to making meaningful, lasting contributions.";
-  const quoteText = useTypewriter("\"Strive not to be a success, but rather to be of value\" - Albert Einstein", showQuoteTyping);
+  const quoteText = useTypewriter("\"Strive not to be a success, but rather to be of value\" - Albert Einstein", showContent, prefersReducedMotion);
 
   // Handle screen resize with better mobile detection
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900); // Better mobile breakpoint
+      setIsMobile(window.innerWidth <= 900);
     };
 
-    // Set initial value
     handleResize();
-
-    // Add event listener
     window.addEventListener('resize', handleResize);
-
-    // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Handle the complete animation sequence with mobile optimization
+  // Animation timing - desktop gets phases, mobile is instant
   useEffect(() => {
-    // Faster animations for mobile
-    const mobileMultiplier = isMobile ? 0.6 : 1;
+    // If user prefers reduced motion or is mobile, show everything immediately
+    if (prefersReducedMotion || isMobile) {
+      setImagePhase('positioned');
+      setShowContent(true);
+      return;
+    }
 
-    // Phase 1: Image appears slowly in center
+    // Desktop animation phases
     const centeredTimer = setTimeout(() => {
       setImagePhase('centered');
-    }, 1500 * mobileMultiplier);
+    }, 600);
 
-    // Phase 2: Image starts moving to right (or stays centered on mobile)
-    const movingTimer = setTimeout(() => {
-      setImagePhase('movingRight');
-    }, 2200 * mobileMultiplier);
-
-    // Phase 3: Image reaches final position
     const positionedTimer = setTimeout(() => {
       setImagePhase('positioned');
-    }, 3200 * mobileMultiplier);
+    }, 1200);
 
-    // Phase 4: Show text container after image is positioned
-    const textTimer = setTimeout(() => {
-      setShowTextContainer(true);
-    }, 3500 * mobileMultiplier);
-
-    // Phase 5: Start name typing
-    const nameTimer = setTimeout(() => {
-      setShowNameTyping(true);
-    }, 3800 * mobileMultiplier);
-
-    // Phase 6: Start role typing after name completes
-    const roleTimer = setTimeout(() => {
-      setShowRoleTyping(true);
-    }, 4800 * mobileMultiplier);
-
-    // Phase 7: Show social icons after role typing
-    const socialTimer = setTimeout(() => {
-      setShowSocialIcons(true);
-    }, 6000 * mobileMultiplier);
-
-    // Phase 8: Show description after social icons appear
-    const descriptionTimer = setTimeout(() => {
-      setShowDescription(true);
-    }, 6300 * mobileMultiplier);
-
-    // Phase 9: Start quote typing after description appears
-    const quoteTimer = setTimeout(() => {
-      setShowQuoteTyping(true);
-    }, 7500 * mobileMultiplier);
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 1500);
 
     return () => {
       clearTimeout(centeredTimer);
-      clearTimeout(movingTimer);
       clearTimeout(positionedTimer);
-      clearTimeout(textTimer);
-      clearTimeout(nameTimer);
-      clearTimeout(roleTimer);
-      clearTimeout(socialTimer);
-      clearTimeout(descriptionTimer);
-      clearTimeout(quoteTimer);
+      clearTimeout(contentTimer);
     };
-  }, [isMobile]);
+  }, [isMobile, prefersReducedMotion]);
 
-  const themeIcon = theme === "light" ? sun : moon;
   const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
   const githubIcon = theme === "light" ? githubIconLight : githubIconDark;
   const leetcodeIcon = theme === "light" ? leetcodeIconLight : leetcodeIconDark;
@@ -167,35 +144,28 @@ function Hero() {
     >
       <motion.div
         className={styles.colorModeContainer}
-        initial={{
+        initial={prefersReducedMotion || isMobile ? {
+          opacity: 1,
+          x: isMobile ? 0 : '27vw',
+          y: isMobile ? 70 : 0
+        } : {
           opacity: 0,
-          scale: 0.3,
+          scale: 0.8,
           x: 0,
           y: 0
         }}
         animate={{
-          opacity: imagePhase === 'appearing' ? 0 : 1,
-          scale: imagePhase === 'appearing' ? 0.3 :
-                 imagePhase === 'centered' ? 1 :
-                 imagePhase === 'movingRight' ? 0.9 : 1,
-          x: imagePhase === 'appearing' ? 0 :
-             imagePhase === 'centered' ? 0 :
-             isMobile ? 0 : '27vw', // Stay centered on mobile, move right on desktop
-          y: isMobile ? (
-            imagePhase === 'appearing' ? 0 :
-            imagePhase === 'centred' ? 0 :
-            imagePhase === 'movingRight' ? 37.5 :
-            imagePhase === 'positioned' ? 75 : 0
-          ) : 0 // Gradual upward movement to final position
+          opacity: 1,
+          scale: isMobile ? 1 : (imagePhase === 'appearing' ? 0.8 : 1),
+          x: isMobile ? 0 : (
+             imagePhase === 'appearing' ? 0 :
+             imagePhase === 'centered' ? 0 : '27vw'
+          ),
+          y: isMobile ? 70 : 0
         }}
-        transition={{
-          opacity: { duration: 2.0, ease: "easeOut" },
-          scale: {
-            duration: imagePhase === 'appearing' ? 2.0 : 0.8,
-            ease: "easeOut"
-          },
-          x: { duration: 1.5, ease: "easeInOut" },
-          y: { duration: 2.0, ease: "easeInOut" }
+        transition={prefersReducedMotion || isMobile ? { duration: 0 } : {
+          duration: 0.8,
+          ease: "easeOut"
         }}
       >
         <img
@@ -206,29 +176,25 @@ function Hero() {
 
       </motion.div>
 
-      {showTextContainer && (
+      {showContent && (
         <motion.div
           className={styles.textContainer}
-          initial={{ opacity: 0, x: isMobile ? 0 : -50, y: 0 }}
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, x: isMobile ? 0 : -30, y: 0 }}
           animate={{
             opacity: 1,
             x: 0,
-            y: 0 // Keep text container stationary on all devices
+            y: 0
           }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-            y: { duration: 0.8, ease: "easeInOut" }
+          transition={prefersReducedMotion ? { duration: 0 } : {
+            duration: 0.6,
+            ease: "easeOut"
           }}
         >
           <div className={styles.info}>
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: showNameTyping ? 1 : 0,
-            y: showNameTyping ? 0 : 20
-          }}
-          transition={{ duration: 0.5 }}
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.2 }}
           style={{
             textAlign: 'center',
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
@@ -244,12 +210,9 @@ function Hero() {
 
         <motion.h2
           className={styles.typingText}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: showRoleTyping ? 1 : 0,
-            y: showRoleTyping ? 0 : 20
-          }}
-          transition={{ duration: 0.5 }}
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.4 }}
           style={{
             position: isMobile ? 'static' : 'absolute',
             top: isMobile ? 'auto' : '100px',
@@ -261,15 +224,14 @@ function Hero() {
           {roleText}
         </motion.h2>
 
-        {showSocialIcons && (
-          <motion.span
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.6,
-              ease: "backOut",
-              staggerChildren: 0.05
-            }}
+        <motion.span
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={prefersReducedMotion ? { duration: 0 } : {
+            duration: 0.5,
+            delay: 0.6,
+            ease: "easeOut"
+          }}
             style={{
               position: isMobile ? 'static' : 'absolute',
               top: isMobile ? 'auto' : '170px',
@@ -280,57 +242,28 @@ function Hero() {
               marginBottom: isMobile ? '15px' : '0'
             }}
           >
-            <motion.a 
-              href="https://github.com/bharatgupta77" 
-              target="_blank"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-            >
+            <a href="https://github.com/bharatgupta77" target="_blank" rel="noopener noreferrer">
               <img src={githubIcon} alt="GitHub" />
-            </motion.a>
-
-            <motion.a 
-              href="https://www.linkedin.com/in/bharatgupta77/" 
-              target="_blank"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
+            </a>
+            <a href="https://www.linkedin.com/in/bharatgupta77/" target="_blank" rel="noopener noreferrer">
               <img src={linkedinIcon} alt="LinkedIn" />
-            </motion.a>
-
-            <motion.a 
-              href="https://leetcode.com/u/guptabharat297/" 
-              target="_blank"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
+            </a>
+            <a href="https://leetcode.com/u/guptabharat297/" target="_blank" rel="noopener noreferrer">
               <img className={leetcode_img_style} src={leetcodeIcon} alt="LeetCode" />
-            </motion.a>
-
-            <motion.a
-              href="https://www.hackerrank.com/profile/bharatgupta777"
-              target="_blank"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
+            </a>
+            <a href="https://www.hackerrank.com/profile/bharatgupta777" target="_blank" rel="noopener noreferrer">
               <img className={leetcode_img_style} src={hackerrankIcon} alt="HackerRank" />
-            </motion.a>
+            </a>
           </motion.span>
-        )}
 
-        {showDescription && (
         <motion.p
           className={styles.description}
-          initial={{ opacity: 0, y: 30, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-            scale: { duration: 0.6, ease: "easeOut" }
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={prefersReducedMotion ? { duration: 0 } : {
+            duration: 0.6,
+            delay: 0.8,
+            ease: "easeOut"
           }}
           style={{
             fontFamily: '"Fira Code", "Consolas", "Monaco", "Roboto Mono", monospace',
@@ -346,16 +279,16 @@ function Hero() {
         >
           {descriptionText}
         </motion.p>
-        )}
 
         {/* Einstein Quote - Inside text container for mobile */}
-        {isMobile && showQuoteTyping && (
+        {isMobile && (
         <motion.p
           className={styles.quote}
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
+          transition={prefersReducedMotion ? { duration: 0 } : {
             duration: 0.6,
+            delay: 1.0,
             ease: "easeOut"
           }}
           style={{
@@ -399,12 +332,12 @@ function Hero() {
       </motion.a>
 
       {/* Einstein Quote - Desktop only (bottom left corner) */}
-      {!isMobile && showQuoteTyping && (
+      {!isMobile && (
         <motion.div
           className={styles.quoteIndicator}
-          initial={{ opacity: 0, y: -20 }}
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 1.0, ease: "easeOut" }}
           style={{
             position: 'absolute',
             bottom: '30px',
@@ -436,9 +369,9 @@ function Hero() {
       {/* Scroll indicator arrow */}
       <motion.div
         className={styles.scrollIndicator}
-        initial={{ opacity: 0, y: -20 }}
+        initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 9, duration: 0.8 }}
+        transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.5, duration: 0.8 }}
         onClick={() => {
           const educationSection = document.getElementById('education');
           if (educationSection) {
@@ -455,11 +388,11 @@ function Hero() {
       >
         <motion.div
           className={styles.scrollArrow}
-          animate={{ y: [0, 10, 0] }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
+          animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
+          transition={prefersReducedMotion ? {} : {
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
           }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
