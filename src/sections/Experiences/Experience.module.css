@@ -1,13 +1,13 @@
 .container {
   width: 96%;
   margin: 0 auto;
-  padding: 2% 2%;
+  padding: var(--spacing-lg) var(--spacing-lg);
   position: relative;
 }
 
 .heading {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: var(--spacing-xl);
 }
 
 .timeline {
@@ -56,7 +56,7 @@
 .details {
   background: var(--experience-card-bg);
   padding: 28px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   box-shadow: var(--experience-card-shadow);
   width: 60%;
   position: relative;
@@ -322,7 +322,7 @@
 .skillTag {
   background: var(--experience-skill-bg);
   border: 1px solid var(--experience-skill-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 6px 12px;
   font-size: 0.8rem;
   color: var(--experience-skill-text);
@@ -543,7 +543,7 @@
   background: var(--experience-duration-card-bg);
   border: 2px solid var(--experience-duration-border);
   border-left: 6px solid #4f46e5;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 18px 32px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);

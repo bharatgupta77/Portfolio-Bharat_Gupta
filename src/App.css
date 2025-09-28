@@ -1,4 +1,30 @@
 :root {
+  /* Design System - Spacing Scale */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 80px;
+
+  /* Design System - Typography Scale */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 40px;
+
+  /* Design System - Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Legacy Colors */
   --background-color: #fff;
   --btn-color: #0987f2;
   --btn-text-color: #fff;
@@ -235,21 +261,21 @@ h2 {
 
 h2,
 h3 {
-  font-size: 20px;
+  font-size: var(--font-size-xl);
 }
 
 h1 {
   font-family: "Rubik", sans-serif;
-  font-size: 32px;
+  font-size: var(--font-size-3xl);
 }
 
 p {
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 300;
 }
 
 .sectionTitle {
-  margin-bottom: 30px;
+  margin-bottom: var(--spacing-lg);
 }
 
 .hover {

@@ -1,5 +1,5 @@
 .container {
-  padding: 80px 20px;
+  padding: var(--spacing-3xl) var(--spacing-xl);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 .title {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: var(--spacing-3xl);
   color: var(--skills-title-color);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -24,7 +24,7 @@
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: var(--spacing-3xl);
 }
 
 /* Category Sections */
@@ -153,7 +153,7 @@
 
 /* Skill Labels */
 .skillLabel {
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   text-align: center;
   color: var(--skills-category-color);
@@ -200,7 +200,7 @@
 }
 
 .star {
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   transition: all 0.3s ease;
 }
 

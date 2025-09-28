@@ -2,23 +2,23 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 2rem; /* ✅ Add padding for spacing */
+  padding: var(--spacing-lg);
 }
 
 .container h1 {
-  margin-bottom: 5%;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .container p {
-  margin-top: 2%;
+  margin-top: var(--spacing-sm);
 }
 
 .container img {
   max-width: 250px;
   align-self: center;
   background-color: var(--project-card-bg);
-  border-radius: 20px;
-  margin-bottom: 15px;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .container a {
@@ -37,8 +37,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
-  padding: 0 1rem; /* ✅ Adds left & right padding */
+  gap: var(--spacing-3xl);
+  padding: 0 var(--spacing-sm);
 }
 
 /* 🖥️ Desktop: Adjust layout for larger screens */
@@ -47,7 +47,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 0 30px;
+    padding: 0 var(--spacing-lg);
     align-items: stretch;
   }
 }
@@ -55,14 +55,14 @@
 /* 📱 Mobile: Ensure spacing */
 @media (max-width: 800px) {
   .container {
-    padding: 1.5rem; /* ✅ Add spacing for mobile screens */
+    padding: var(--spacing-md);
   }
 
   .container h1 {
-    margin-bottom: 10%;
+    margin-bottom: var(--spacing-xl);
   }
 
   .container p {
-    margin-top: 3%;
+    margin-top: var(--spacing-sm);
   }
 }

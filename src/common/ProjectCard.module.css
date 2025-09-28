@@ -2,10 +2,10 @@
   width: 30% !important;
   min-height: 450px;
   background: var(--card-bg);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   border: 2px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  padding: 2rem;
+  padding: var(--spacing-lg);
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
     border 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -26,7 +26,7 @@
     background: var(--card-hover-bg);
     border: 2px solid var(--card-hover-border);
     box-shadow: var(--card-hover-shadow);
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
@@ -42,40 +42,40 @@
     background: var(--card-hover-bg);
     border: 2px solid var(--card-hover-bg);
     box-shadow: var(--card-hover-shadow), 0 0 30px rgba(59, 130, 246, 0.3);
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-8px) scale(1.05);
   }
 }
 
 /* 🖼 Image Adjustments */
 .card img {
   max-width: 80%;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 /* ✏️ Text Adjustments */
 .card h3 {
-  font-size: 1.2rem;
+  font-size: var(--font-size-xl);
   font-weight: bold;
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .card p {
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   color: var(--text-color);
   line-height: 1.5;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 /* Description Container */
 .description {
   flex-grow: 1;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 /* GitHub Info Section */
@@ -83,12 +83,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
+  gap: var(--spacing-xs);
+  margin: var(--spacing-sm) 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
   background: rgba(100, 100, 100, 0.05);
-  border-radius: 8px;
-  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
   color: var(--text-color);
   opacity: 0.8;
   transition: all 0.2s ease;
@@ -117,7 +117,7 @@
 .tagsContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
   margin-top: auto;
   justify-content: center;
 }
@@ -127,9 +127,9 @@
   background: rgba(59, 130, 246, 0.1);
   color: #1e40af;
   border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 12px;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.75rem;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
   font-weight: 500;
   white-space: nowrap;
   transition: all 0.2s ease;
