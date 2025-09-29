@@ -170,8 +170,8 @@ const Skills = () => {
 
   return (
     <section id="skills" className={styles.container}>
-      <motion.h1 
-        className={styles.title}
+      <motion.h1
+        className="sectionTitle"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

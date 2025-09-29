@@ -244,7 +244,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: 60px 15px;
+    padding: var(--spacing-md);
   }
   
   .title {
