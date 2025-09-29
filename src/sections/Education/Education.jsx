@@ -3,7 +3,6 @@ import styles from "./Education.module.css";
 import utdLogo from "../../assets/utd_logo.png";
 import pictLogo from "../../assets/pict_logo.jpg";
 import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
 
 const educationData = [
   {
@@ -76,26 +75,17 @@ const Education = () => {
       <h1 className="sectionTitle">Education</h1>
       <div className={styles.cardWrapper}>
         {educationData.map((edu, index) => (
-          <Tilt
-            key={index}
-            tiltMaxAngleX={5}
-            tiltMaxAngleY={5}
-            perspective={1000}
-            scale={1.01}
-            transitionSpeed={1000}
-            glareEnable={false}
-            gyroscope={true}
-          >
             <motion.div
+              key={index}
               className={styles.card}
-              style={{ 
+              style={{
                 backgroundColor: bgColors[index % bgColors.length],
                 '--brand-color-1': edu.brandColors[0],
                 '--brand-color-2': edu.brandColors[1]
               }}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, y: 50 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               viewport={{ once: false, amount: 0.1 }}
             >
               <motion.div
@@ -248,7 +238,6 @@ const Education = () => {
                 </motion.div>
               </div>
             </motion.div>
-          </Tilt>
         ))}
       </div>
     </div>
