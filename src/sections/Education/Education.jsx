@@ -96,7 +96,7 @@ const Education = () => {
               initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, y: 50 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.1 }}
             >
               <motion.div
                 className={styles.logoContainer}
@@ -120,7 +120,7 @@ const Education = () => {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.1 }}
                   custom={0}
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '8px'}}>
@@ -134,7 +134,7 @@ const Education = () => {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.1 }}
                   custom={1}
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '8px'}}>
@@ -152,7 +152,7 @@ const Education = () => {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.1 }}
                   custom={2}
                 >
                   <div className={styles.progressBar}>
@@ -172,7 +172,7 @@ const Education = () => {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.1 }}
                   custom={3}
                 >
                   <div className={styles.courseworkHeader}>
@@ -206,7 +206,7 @@ const Education = () => {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.1 }}
                   custom={4}
                 >
                   <div className={styles.courseworkHeader}>
@@ -235,7 +235,7 @@ const Education = () => {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.1 }}
                   custom={5}
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '8px'}}>
