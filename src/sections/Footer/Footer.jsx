@@ -9,7 +9,7 @@ const Footer = () => {
         <h2>Bringing ideas to life through code, creativity, and passion.</h2>
       </div>
       <div className={styles.footerBottom}>
-        <p>
+        <p className={styles.footerBottom}>
           &copy; {new Date().getFullYear()} Bharat Gupta. All rights reserved.
         </p>
       </div>
