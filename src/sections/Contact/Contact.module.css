@@ -230,24 +230,107 @@ label {
 }
 
 @media (max-width: 767px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+  }
+
+  .card {
+    padding: var(--spacing-md);
+    width: 100%;
+    max-width: none;
+  }
+
   .infoSection {
     border-right: none;
     border-bottom: 2px solid var(--contact-right-border-color);
-    padding-bottom: 4rem;
-    max-width: 98rem;
+    padding-bottom: var(--spacing-lg);
+    padding-right: 0;
+    max-width: 100%;
     align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contactInfo {
+    width: 100%;
+    gap: var(--spacing-sm);
+  }
+
+  .infoItem {
+    padding: var(--spacing-sm);
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .formSection {
-    max-width: 98rem;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: var(--spacing-md);
   }
 
+  input,
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
   .container {
-    width: 84%;
-    margin: 0 auto;
+    width: 98%;
+    padding: var(--spacing-sm);
+  }
+
+  .card {
+    padding: var(--spacing-sm);
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .infoItem {
+    flex-direction: row;
+    gap: var(--spacing-xs);
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
