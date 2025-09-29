@@ -94,7 +94,8 @@
   margin: 18px 0;
   line-height: 1.6;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .coursework strong,
@@ -227,5 +228,49 @@
 
   .logo {
     height: 80px;
+  }
+}
+
+/* Awards styling */
+.awardsHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  color: var(--education-text-color);
+}
+
+.awardsList {
+  margin-left: 28px;
+}
+
+.awardItem {
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.awardItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+}
+
+/* Mobile awards styling */
+@media screen and (max-width: 768px) {
+  .awardsList {
+    margin-left: 0;
+  }
+
+  .awardItem {
+    margin-bottom: 6px;
+    padding-left: 16px;
   }
 }

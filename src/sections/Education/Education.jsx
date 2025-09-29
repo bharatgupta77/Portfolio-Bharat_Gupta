@@ -23,7 +23,7 @@ const educationData = [
       "Spreadsheet Modeling",
     ],
     techSkills: ["Python", "AWS", "Data Analysis", "Cloud Computing", "Big Data"],
-    awards: "JSOM Program Excellence Scholarship",
+    awards: "JSOM Program Excellence Scholarship, Menka Hemrajani Fellowship",
     logo: utdLogo,
     brandColors: ["#C75B12", "#005596"], // UTD Orange and Blue
   },
@@ -228,13 +228,20 @@ const Education = () => {
                   viewport={{ once: false, amount: 0.1 }}
                   custom={5}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '8px'}}>
-                    <path d="M12 2l1.88 3.82 4.2.61-3.04 2.96.72 4.18L12 11.72l-3.76 1.98.72-4.18L6.01 6.44l4.2-.61L12 2zm0 15.5c-1.25 0-2.27.92-2.46 2.1h4.92c-.19-1.18-1.21-2.1-2.46-2.1z"/>
-                    <rect x="8" y="19" width="8" height="3" rx="1"/>
-                  </svg>
-                  <span>
-                    <strong>Awards and Recognition:</strong> {edu.awards}
-                  </span>
+                  <div className={styles.awardsHeader}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '8px'}}>
+                      <path d="M12 2l1.88 3.82 4.2.61-3.04 2.96.72 4.18L12 11.72l-3.76 1.98.72-4.18L6.01 6.44l4.2-.61L12 2zm0 15.5c-1.25 0-2.27.92-2.46 2.1h4.92c-.19-1.18-1.21-2.1-2.46-2.1z"/>
+                      <rect x="8" y="19" width="8" height="3" rx="1"/>
+                    </svg>
+                    <strong>Awards and Recognition:</strong>
+                  </div>
+                  <div className={styles.awardsList}>
+                    {edu.awards.split(',').map((award, awardIndex) => (
+                      <div key={awardIndex} className={styles.awardItem}>
+                        {award.trim()}
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
