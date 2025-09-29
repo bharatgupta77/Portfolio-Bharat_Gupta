@@ -73,7 +73,7 @@ const textVariant = {
 const Education = () => {
   return (
     <div id="education" className={styles.container}>
-      <h1 className={styles.sectionHeading}>Education</h1>
+      <h1 className="sectionTitle">Education</h1>
       <div className={styles.cardWrapper}>
         {educationData.map((edu, index) => (
           <Tilt
