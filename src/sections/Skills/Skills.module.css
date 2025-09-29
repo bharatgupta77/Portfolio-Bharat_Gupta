@@ -108,9 +108,9 @@
 }
 
 .skillWrapper:hover .skillItem {
-  background: var(--skills-item-hover-bg);
+  background: transparent;
   border-color: var(--brand-color, var(--skills-item-hover-border));
-  box-shadow: 
+  box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.15),
     0 0 25px var(--brand-color, rgba(0, 0, 0, 0.1));
 }
