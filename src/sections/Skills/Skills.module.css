@@ -100,6 +100,7 @@
   height: 150px;
   padding: 30px;
   border-radius: 30px;
+  backdrop-filter: blur(10px);
   background: var(--skills-item-bg);
   border: 1px solid var(--skills-item-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
