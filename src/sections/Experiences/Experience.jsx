@@ -105,7 +105,7 @@ const ExperienceTimeline = () => {
 
   return (
     <div id="experience" className={styles.container}>
-      <h1 className={styles.heading}>Experience</h1>
+      <h1 className="sectionTitle">Experience</h1>
       
       <div className={styles.timeline}>
         {experienceData.map((exp, index) => (

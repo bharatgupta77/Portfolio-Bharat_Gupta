@@ -389,7 +389,7 @@
 @media (max-width: 768px) {
   .container {
     width: 95%;
-    padding: 20px 10px;
+    padding: var(--spacing-md);
   }
 
   .timeline {
