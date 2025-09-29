@@ -13,8 +13,19 @@ const NavBar = () => {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
+      const isMobile = window.innerWidth <= 768;
+      let offset;
+
+      // Use Projects section offset for all sections to maintain consistency
+      if (id === 'hero') {
+        offset = 0; // Hero should be at top
+      } else {
+        // All sections use same offset as Projects section for consistency
+        offset = isMobile ? 80 : 100;
+      }
+
       window.scrollTo({
-        top: section.offsetTop - 60, // Adjust to navbar height
+        top: section.offsetTop - offset,
         behavior: "smooth",
       });
       setMenuOpen(false); // Close mobile menu after clicking
