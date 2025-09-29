@@ -8,7 +8,7 @@ function Certificates() {
       id: 1,
       title: "AWS Certified Solutions Architect - Associate",
       issuer: "Amazon Web Services",
-      date: "May 2025",
+      date: "May 8, 2025",
       credentialId: "9bc7e1c1bdd84aaeb909f75e2f038c84",
       credentialUrl: "https://aws.amazon.com/verification",
       validUntil: "May 8, 2028",
