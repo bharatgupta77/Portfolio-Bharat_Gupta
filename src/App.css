@@ -53,6 +53,7 @@
   --skills-icon-hover-bg: rgba(241, 245, 249, 0.8);
   --skills-icon-hover-border: #94a3b8;
   --skills-label-hover-color: #222;
+  --skills-tooltip-bg: #ffffff;
   --brand-color: transparent;
 
   /* Floating Particles */
@@ -154,6 +155,7 @@
   --skills-icon-hover-bg: rgba(255, 255, 255, 0.1);
   --skills-icon-hover-border: rgba(255, 255, 255, 0.3);
   --skills-label-hover-color: #fff;
+  --skills-tooltip-bg: #292727;
 
   /* Floating Particles */
   --particle-color: rgba(255, 255, 255, 0.6);
