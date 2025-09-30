@@ -221,21 +221,45 @@ const Skills = () => {
   const [flippedCards, setFlippedCards] = React.useState(new Set());
 
   React.useEffect(() => {
+    // Fallback for mobile devices - if Intersection Observer doesn't work
+    const fallbackTimer = setTimeout(() => {
+      if (!hasShown) {
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+          const rect = skillsSection.getBoundingClientRect();
+          // Check if skills section is visible on screen
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            setShowTooltip(true);
+            setHasShown(true);
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+              setShowTooltip(false);
+            }, 5000);
+          }
+        }
+      }
+    }, 2000); // Check after 2 seconds as a fallback
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasShown) {
+            // Clear fallback timer if observer works
+            clearTimeout(fallbackTimer);
             // Show tooltip only once when entering Skills section for the first time
             setShowTooltip(true);
             setHasShown(true);
-            // Auto hide after 2 seconds
+            // Auto hide after 5 seconds
             setTimeout(() => {
               setShowTooltip(false);
             }, 5000);
           }
         });
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.1, // Lower threshold for better mobile support
+        rootMargin: '0px 0px -50px 0px' // Trigger earlier on mobile
+      }
     );
 
     // Click event listener for navigation skills link
@@ -268,6 +292,7 @@ const Skills = () => {
         observer.unobserve(skillsSection);
       }
       document.removeEventListener('click', handleSkillsNavClick);
+      clearTimeout(fallbackTimer); // Clean up fallback timer
     };
   }, [hasShown]);
 
