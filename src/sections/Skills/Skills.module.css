@@ -91,6 +91,14 @@
   transition: all 0.3s ease;
   position: relative;
   z-index: 2;
+  /* Remove blue highlight on mobile touch */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Individual Skill Items */
