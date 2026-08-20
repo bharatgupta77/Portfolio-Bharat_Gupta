@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 const educationData = [
   {
     year: "2024 - 2026",
-    duration: "In Progress",
-    progress: 60, // 60% complete
+    duration: "18 months",
+    progress: 100, // 60% complete
     institution: "The University of Texas at Dallas",
     degree: "Master of Science in Information Technology and Management",
     coursework: [
