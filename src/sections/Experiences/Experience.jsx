@@ -12,14 +12,14 @@ const experienceData = [
     logo: copart,
     company: "Copart",
     role: "Software Engineer Intern",
-    duration: "May 2025 – Present",
-    durationYears: "Current",
+    duration: "May 2025 – May 2026",
+    durationYears: "10+ months",
     description: [
       "Designed and built key features for Copart.com using Angular, TypeScript, HTML, CSS, and JavaScript, delivering responsive and accessible UI components for members across multiple platform modules.",
       "Converted Figma designs into scalable, reusable Angular components with pixel-perfect precision."
     ],
     techStack: [
-      "Angular", "TypeScript", "HTML", "CSS", "JavaScript", "Figma", "UI/UX", "SQL", "SOLR", "ALGOLIA"
+      "React", "Angular", "TypeScript", "HTML", "CSS", "JavaScript", "Figma", "UI/UX", "SQL", "SOLR", "ALGOLIA", "Java" , "Springboot"
     ],
     keySkills: ["Angular", "TypeScript", "UI/UX Design", "Component Architecture"],
     brandColors: ["#1E40AF", "#3B82F6"], // Blue theme for Copart
@@ -43,7 +43,7 @@ const experienceData = [
       "Collaborated cross-functionally with design, copywriting and agile teams, leveraging organizational skills and project plans to streamline UI/UX enhancements and ensure timely feature delivery.",
     ],
     techStack: [
-      "Android", "Kotlin", "Python", "Java", "HTML", "CSS",
+      "Android", "Kotlin", "Python", "Java", "HTML", "CSS", "JavaScript", "React",
       "APIs", "Postman", "Splunk", "Figma", "UI/UX", "Mobile Development", "Firebase"
     ],
     keySkills: ["Android Development", "Kotlin", "Python", "API Integration", "UI/UX Design"],
